@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>plot &#8212; wfdb 4.0.0a0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="processing" href="processing.html" />
+    <link rel="prev" title="io" href="io.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="processing.html" title="processing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="io.html" title="io"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">wfdb 4.0.0a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">plot</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-wfdb.plot">
+<span id="plot"></span><h1>plot<a class="headerlink" href="#module-wfdb.plot" title="Permalink to this headline">¶</a></h1>
+<p>The plot subpackage contains tools for plotting signals and annotations.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.plot.plot_all_records">
+<span class="sig-prename descclassname"><span class="pre">wfdb.plot.</span></span><span class="sig-name descname"><span class="pre">plot_all_records</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.plot.plot_all_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot all WFDB records in a directory (by finding header files), one at
+a time, until the ‘enter’ key is pressed.</p>
+<dl class="simple">
+<dt>directory<span class="classifier">str, optional</span></dt><dd><p>The directory in which to search for WFDB records. Defaults to
+current working directory.</p>
+</dd>
+</dl>
+<p>N/A</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.plot.plot_items">
+<span class="sig-prename descclassname"><span class="pre">wfdb.plot.</span></span><span class="sig-name descname"><span class="pre">plot_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann_sym</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'samples'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['r*']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecg_grids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig_axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.plot.plot_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subplot individual channels of signals and/or annotations.</p>
+<dl>
+<dt>signal<span class="classifier">1d or 2d numpy array, optional</span></dt><dd><p>The uniformly sampled signal to be plotted. If signal.ndim is 1, it is
+assumed to be a one channel signal. If it is 2, axes 0 and 1, must
+represent time and channel number respectively.</p>
+</dd>
+<dt>ann_samp: list, optional</dt><dd><p>A list of annotation locations to plot, with each list item
+corresponding to a different channel. List items may be:</p>
+<ul class="simple">
+<li><p>1d numpy array, with values representing sample indices. Empty
+arrays are skipped.</p></li>
+<li><p>list, with values representing sample indices. Empty lists
+are skipped.</p></li>
+<li><p>None. For channels in which nothing is to be plotted.</p></li>
+</ul>
+<p>If <cite>signal</cite> is defined, the annotation locations will be overlaid on
+the signals, with the list index corresponding to the signal channel.
+The length of <cite>annotation</cite> does not have to match the number of
+channels of <cite>signal</cite>.</p>
+</dd>
+<dt>ann_sym: list, optional</dt><dd><p>A list of annotation symbols to plot, with each list item
+corresponding to a different channel. List items should be lists of
+strings. The symbols are plotted over the corresponding <cite>ann_samp</cite>
+index locations.</p>
+</dd>
+<dt>fs<span class="classifier">int, float, optional</span></dt><dd><p>The sampling frequency of the signals and/or annotations. Used to
+calculate time intervals if <cite>time_units</cite> is not ‘samples’. Also
+required for plotting ECG grids.</p>
+</dd>
+<dt>time_units<span class="classifier">str, optional</span></dt><dd><p>The x axis unit. Allowed options are: ‘samples’, ‘seconds’, ‘minutes’,
+and ‘hours’.</p>
+</dd>
+<dt>sig_name<span class="classifier">list, optional</span></dt><dd><p>A list of strings specifying the signal names. Used with <cite>sig_units</cite>
+to form y labels, if <cite>ylabel</cite> is not set.</p>
+</dd>
+<dt>sig_units<span class="classifier">list, optional</span></dt><dd><p>A list of strings specifying the units of each signal channel. Used
+with <cite>sig_name</cite> to form y labels, if <cite>ylabel</cite> is not set. This
+parameter is required for plotting ECG grids.</p>
+</dd>
+<dt>xlabel<span class="classifier">list, optional</span></dt><dd><p>A list of strings specifying the final x labels to be used. If this
+option is present, no ‘time/’<cite>time_units</cite> is used.</p>
+</dd>
+<dt>ylabel<span class="classifier">list, optional</span></dt><dd><p>A list of strings specifying the final y labels. If this option is
+present, <cite>sig_name</cite> and <cite>sig_units</cite> will not be used for labels.</p>
+</dd>
+<dt>title<span class="classifier">str, optional</span></dt><dd><p>The title of the graph.</p>
+</dd>
+<dt>sig_style<span class="classifier">list, optional</span></dt><dd><p>A list of strings, specifying the style of the matplotlib plot
+for each signal channel. The list length should match the number
+of signal channels. If the list has a length of 1, the style
+will be used for all channels.</p>
+</dd>
+<dt>ann_style<span class="classifier">list, optional</span></dt><dd><p>A list of strings, specifying the style of the matplotlib plot for each
+annotation channel. If the list has a length of 1, the style will be
+used for all channels.</p>
+</dd>
+<dt>ecg_grids<span class="classifier">list, optional</span></dt><dd><p>A list of integers specifying channels in which to plot ECG grids. May
+also be set to ‘all’ for all channels. Major grids at 0.5mV, and minor
+grids at 0.125mV. All channels to be plotted with grids must have
+<cite>sig_units</cite> equal to ‘uV’, ‘mV’, or ‘V’.</p>
+</dd>
+<dt>sharex, sharey<span class="classifier">bool, optional</span></dt><dd><p>Controls sharing of properties among x (<cite>sharex</cite>) or y (<cite>sharey</cite>) axes.
+If True: x- or y-axis will be shared among all subplots.
+If False, each subplot x- or y-axis will be independent.</p>
+</dd>
+<dt>figsize<span class="classifier">tuple, optional</span></dt><dd><p>Tuple pair specifying the width, and height of the figure. It is the
+‘figsize’ argument passed into matplotlib.pyplot’s <cite>figure</cite> function.</p>
+</dd>
+<dt>return_fig<span class="classifier">bool, optional</span></dt><dd><p>Whether the figure is to be returned as an output argument.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>fig<span class="classifier">matplotlib figure, optional</span></dt><dd><p>The matplotlib figure generated. Only returned if the ‘return_fig’
+or ‘return_fig_axes’ parameter is set to True.</p>
+</dd>
+<dt>axes<span class="classifier">matplotlib axes, optional</span></dt><dd><p>The matplotlib axes generated. Only returned if the ‘return_fig_axes’
+parameter is set to True.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">sampto</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ann</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdann</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="s1">&#39;atr&#39;</span><span class="p">,</span> <span class="n">sampto</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">plot_items</span><span class="p">(</span><span class="n">signal</span><span class="o">=</span><span class="n">record</span><span class="o">.</span><span class="n">p_signal</span><span class="p">,</span>
+<span class="go">                    ann_samp=[ann.sample, ann.sample],</span>
+<span class="go">                    title=&#39;MIT-BIH Record 100&#39;, time_units=&#39;seconds&#39;,</span>
+<span class="go">                    figsize=(10,4), ecg_grids=&#39;all&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.plot.plot_wfdb">
+<span class="sig-prename descclassname"><span class="pre">wfdb.plot.</span></span><span class="sig-name descname"><span class="pre">plot_wfdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_sym</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'samples'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['r*']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecg_grids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.plot.plot_wfdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subplot individual channels of a WFDB record and/or annotation.</p>
+<p>This function implements the base functionality of the <cite>plot_items</cite>
+function, while allowing direct input of WFDB objects.</p>
+<dl class="simple">
+<dt>If the record object is input, the function will extract from it:</dt><dd><ul class="simple">
+<li><p>signal values, from the <cite>p_signal</cite> (priority) or <cite>d_signal</cite> attribute</p></li>
+<li><p>sampling frequency, from the <cite>fs</cite> attribute</p></li>
+<li><p>signal names, from the <cite>sig_name</cite> attribute</p></li>
+<li><p>signal units, from the <cite>units</cite> attribute</p></li>
+</ul>
+</dd>
+<dt>If the annotation object is input, the function will extract from it:</dt><dd><ul class="simple">
+<li><p>sample locations, from the <cite>sample</cite> attribute</p></li>
+<li><p>symbols, from the <cite>symbol</cite> attribute</p></li>
+<li><p>the annotation channels, from the <cite>chan</cite> attribute</p></li>
+<li><p>the sampling frequency, from the <cite>fs</cite> attribute if present, and if fs
+was not already extracted from the <cite>record</cite> argument.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>record<span class="classifier">WFDB Record, optional</span></dt><dd><p>The Record object to be plotted.</p>
+</dd>
+<dt>annotation<span class="classifier">WFDB Annotation, optional</span></dt><dd><p>The Annotation object to be plotted.</p>
+</dd>
+<dt>plot_sym<span class="classifier">bool, optional</span></dt><dd><p>Whether to plot the annotation symbols on the graph.</p>
+</dd>
+<dt>time_units<span class="classifier">str, optional</span></dt><dd><p>The x axis unit. Allowed options are: ‘samples’, ‘seconds’,
+‘minutes’, and ‘hours’.</p>
+</dd>
+<dt>title<span class="classifier">str, optional</span></dt><dd><p>The title of the graph.</p>
+</dd>
+<dt>sig_style<span class="classifier">list, optional</span></dt><dd><p>A list of strings, specifying the style of the matplotlib plot
+for each signal channel. The list length should match the number
+of signal channels. If the list has a length of 1, the style
+will be used for all channels.</p>
+</dd>
+<dt>ann_style<span class="classifier">list, optional</span></dt><dd><p>A list of strings, specifying the style of the matplotlib plot
+for each annotation channel. The list length should match the
+number of annotation channels. If the list has a length of 1,
+the style will be used for all channels.</p>
+</dd>
+<dt>ecg_grids<span class="classifier">list, optional</span></dt><dd><p>A list of integers specifying channels in which to plot ECG grids. May
+also be set to ‘all’ for all channels. Major grids at 0.5mV, and minor
+grids at 0.125mV. All channels to be plotted with grids must have
+<cite>sig_units</cite> equal to ‘uV’, ‘mV’, or ‘V’.</p>
+</dd>
+<dt>figsize<span class="classifier">tuple, optional</span></dt><dd><p>Tuple pair specifying the width, and height of the figure. It is the
+‘figsize’ argument passed into matplotlib.pyplot’s <cite>figure</cite> function.</p>
+</dd>
+<dt>return_fig<span class="classifier">bool, optional</span></dt><dd><p>Whether the figure is to be returned as an output argument.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>figure<span class="classifier">matplotlib figure, optional</span></dt><dd><p>The matplotlib figure generated. Only returned if the ‘return_fig’
+option is set to True.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">sampto</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">annotation</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdann</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="s1">&#39;atr&#39;</span><span class="p">,</span> <span class="n">sampto</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">plot_wfdb</span><span class="p">(</span><span class="n">record</span><span class="o">=</span><span class="n">record</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="n">annotation</span><span class="p">,</span> <span class="n">plot_sym</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">                   time_units=&#39;seconds&#39;, title=&#39;MIT-BIH Record 100&#39;,</span>
+<span class="go">                   figsize=(10,4), ecg_grids=&#39;all&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="io.html"
+                          title="previous chapter">io</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="processing.html"
+                          title="next chapter">processing</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="processing.html" title="processing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="io.html" title="io"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">wfdb 4.0.0a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">plot</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, MIT Lab for Computational Physiology.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

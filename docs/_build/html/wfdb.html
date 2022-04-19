@@ -1,0 +1,1839 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>wfdb &#8212; wfdb 4.0.0a0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="processing" href="processing.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="processing.html" title="processing"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">wfdb 4.0.0a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">wfdb</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="wfdb">
+<h1>wfdb<a class="headerlink" href="#wfdb" title="Permalink to this headline">¶</a></h1>
+<p>These core components are accessible by importing the <cite>wfdb</cite> package
+directly, as well as from their respective subpackages.</p>
+<section id="module-wfdb">
+<span id="wfdb-records"></span><h2>WFDB Records<a class="headerlink" href="#module-wfdb" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.csv2mit">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">csv2mit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samps_per_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">counter_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_counter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dat_file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byte_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checksum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.csv2mit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a WFDB header file and return either a <cite>Record</cite> object with the
+record descriptors as attributes or write a record and header file.</p>
+<dl class="simple">
+<dt>file_name<span class="classifier">str</span></dt><dd><p>The name of the WFDB record to be read, without any file
+extensions. If the argument contains any path delimiter
+characters, the argument will be interpreted as PATH/BASE_RECORD.
+Both relative and absolute paths are accepted. If the <cite>pn_dir</cite>
+parameter is set, this parameter should contain just the base
+record name, and the files fill be searched for remotely.
+Otherwise, the data files will be searched for in the local path.</p>
+</dd>
+<dt>fs<span class="classifier">float</span></dt><dd><p>This number can be expressed in any format legal for a Python input of
+floating point numbers (thus ‘360’, ‘360.’, ‘360.0’, and ‘3.6e2’ are
+all legal and equivalent). The sampling frequency must be greater than 0;
+if it is missing, a value of 250 is assumed.</p>
+</dd>
+<dt>units<span class="classifier">list, str</span></dt><dd><p>This will be applied as the passed list unless a single str is passed
+instead - in which case the str will be assigned for all channels.
+This field can be present only if the ADC gain is also present. It
+follows the baseline field if that field is present, or the gain field
+if the baseline field is absent. The units field is a list of character
+strings that specifies the type of physical unit. If the units field is
+absent, the physical unit may be assumed to be 1 mV.</p>
+</dd>
+<dt>fmt<span class="classifier">list, str, optional</span></dt><dd><p>This will be applied as the passed list unless a single str is passed
+instead - in which case the str will be assigned for all
+channels. A list of strings giving the WFDB format of each file used to
+store each channel. Accepted formats are: ‘80’,’212’,’16’,’24’, and
+‘32’. There are other WFDB formats as specified by:
+<a class="reference external" href="https://www.physionet.org/physiotools/wag/signal-5.htm">https://www.physionet.org/physiotools/wag/signal-5.htm</a>
+but this library will not write (though it will read) those file types.
+Each field is an integer that specifies the storage format of the signal.
+All signals in a given group are stored in the same format. The most
+common format is format <cite>16</cite> (sixteen-bit amplitudes). The parameters
+<cite>samps_per_frame</cite>, <cite>skew</cite>, and <cite>byte_offset</cite> are optional fields, and
+if present, are bound to the format field. In other words, they may be
+considered as format modifiers, since they further describe the encoding
+of samples within the signal file.</p>
+</dd>
+<dt>adc_gain<span class="classifier">list, int, optional</span></dt><dd><p>This will be applied as the passed list unless a single int is passed
+instead - in which case the int will be assigned for all channels.
+This field is a list of numbers that specifies the difference in
+sample values that would be observed if a step of one physical unit
+occurred in the original analog signal. For ECGs, the gain is usually
+roughly equal to the R-wave amplitude in a lead that is roughly parallel
+to the mean cardiac electrical axis. If the gain is zero or missing, this
+indicates that the signal amplitude is uncalibrated; in such cases, a
+value of 200 ADC units per physical unit may be assumed.</p>
+</dd>
+<dt>baseline<span class="classifier">list, int, optional</span></dt><dd><p>This will be applied as the passed list unless a single int is passed
+instead - in which case the int will be assigned for all channels. This
+field can be present only if the ADC gain is also present. It is not
+separated by whitespace from the ADC gain field; rather, it is
+surrounded by parentheses, which delimit it. The baseline is an integer
+that specifies the sample value corresponding to 0 physical units. If
+absent, the baseline is taken to be equal to the ADC zero. Note that
+the baseline need not be a value within the ADC range; for example,
+if the ADC input range corresponds to 200-300 degrees Kelvin, the
+baseline is the (extended precision) value that would map to 0 degrees
+Kelvin.</p>
+</dd>
+<dt>samps_per_frame<span class="classifier">list, int, optional</span></dt><dd><p>This will be applied as the passed list unless a single int is passed
+instead - in which case the int will be assigned for all channels.
+Normally, all signals in a given record are sampled at the (base)
+sampling frequency as specified by <cite>fs</cite>; in this case, the number of
+samples per frame is 1 for all signals, and this field is conventionally
+omitted. If the signal was sampled at some integer multiple, n, of the
+base sampling frequency, however, each frame contains n samples of the
+signal, and the value specified in this field is also n. (Note that
+non-integer multiples of the base sampling frequency are not supported).</p>
+</dd>
+<dt>counter_freq<span class="classifier">float, optional</span></dt><dd><p>This field (a floating-point number, in the same format as <cite>fs</cite>) can be
+present only if <cite>fs</cite> is also present. Typically, the counter frequency
+may be derived from an analog tape counter, or from page numbers in a
+chart recording. If the counter frequency is absent or not positive,
+it is assumed to be equal to <cite>fs</cite>.</p>
+</dd>
+<dt>base_counter<span class="classifier">float, optional</span></dt><dd><p>This field can be present only if the counter frequency is also present.
+The base counter value is a floating-point number that specifies the counter
+value corresponding to sample 0. If absent, the base counter value is
+taken to be 0.</p>
+</dd>
+<dt>base_time<span class="classifier">str, optional</span></dt><dd><p>This field can be present only if the number of samples is also present.
+It gives the time of day that corresponds to the beginning of the
+record, in ‘HH:MM:SS’ format (using a 24-hour clock; thus ‘13:05:00’, or
+‘13:5:0’, represent 1:05 pm). If this field is absent, the time-conversion
+functions assume a value of ‘0:0:0’, corresponding to midnight.</p>
+</dd>
+<dt>base_date<span class="classifier">str, optional</span></dt><dd><p>This field can be present only if the base time is also present. It contains
+the date that corresponds to the beginning of the record, in ‘DD/MM/YYYY’
+format (e.g., ‘25/4/1989’ is ‘25 April 1989’).</p>
+</dd>
+<dt>comments<span class="classifier">list, optional</span></dt><dd><p>A list of string comments to be written to the header file. Each string
+entry represents a new line to be appended to the bottom of the header
+file (‘.hea’).</p>
+</dd>
+<dt>sig_name<span class="classifier">list, optional</span></dt><dd><p>A list of strings giving the signal name of each signal channel. This
+will be used for plotting the signal both in this package and
+LightWave. Note, this value will be used in preference to the CSV
+header, if applicable, to define custom signal names.</p>
+</dd>
+<dt>dat_file_name<span class="classifier">str, optional</span></dt><dd><p>The name of the file in which samples of the signal are kept. Although the
+record name is usually part of the signal file name, this convention is
+not a requirement. Note that several signals can share the same file
+(i.e., they can belong to the same signal group); all entries for signals
+that share a given file must be consecutive, however. Note, the default
+behavior is to save the files in the current working directory, not the
+directory of the file being read.</p>
+</dd>
+<dt>skew<span class="classifier">list, int, optional</span></dt><dd><p>This will be applied as the passed list unless a single int is passed
+instead - in which case the int will be assigned for all channels.
+Ideally, within a given record, samples of different signals with the
+same sample number are simultaneous (within one sampling interval).
+If this is not the case (as, for example, when a multitrack analog
+tape recording is digitized and the azimuth of the playback head does
+not match that of the recording head), the skew between signals can
+sometimes be determined (for example, by locating recorded waveform
+features with known time relationships, such as calibration signals).
+If this has been done, the skew field may be inserted into the header
+file to indicate the (positive) number of samples of the signal that
+are considered to precede sample 0. These samples, if any, are included
+in the checksum. (Note the checksum need not be changed if the skew field
+is inserted or modified).</p>
+</dd>
+<dt>byte_offset<span class="classifier">list, int, optional</span></dt><dd><p>This will be applied as the passed list unless a single int is passed
+instead - in which case the int will be assigned for all channels.
+Normally, signal files include only sample data. If a signal file
+includes a preamble, however, this field specifies the offset in bytes
+from the beginning of the signal file to sample 0 (i.e., the length
+of the preamble). Data within the preamble is not included in the signal
+checksum. Note that the byte offset must be the same for all signals
+within a given group (use the skew field to correct for intersignal
+skew). This feature is provided only to simplify the task of reading
+signal files not generated using the WFDB library; the WFDB library
+does not support any means of writing such files, and byte offsets must
+be inserted into header files manually.</p>
+</dd>
+<dt>adc_res: list, int, optional</dt><dd><p>This will be applied as the passed list unless a single int is passed
+instead - in which case the int will be assigned for all channels.
+This field can be present only if the ADC gain is also present. It
+specifies the resolution of the analog-to-digital converter used to
+digitize the signal. Typical ADCs have resolutions between 8 and 16
+bits. If this field is missing or zero, the default value is 12 bits
+for amplitude-format signals, or 10 bits for difference-format signals
+(unless a lower value is specified by the format field).</p>
+</dd>
+<dt>adc_zero: list, int, optional</dt><dd><p>This will be applied as the passed list unless a single int is passed
+instead - in which case the int will be assigned for all channels.
+This field can be present only if the ADC resolution is also present.
+It is an integer that represents the amplitude (sample value) that
+would be observed if the analog signal present at the ADC inputs had
+a level that fell exactly in the middle of the input range of the ADC.
+For a bipolar ADC, this value is usually zero, but a unipolar (offset
+binary) ADC usually produces a non-zero value in the middle of its
+range. Together with the ADC resolution, the contents of this field
+can be used to determine the range of possible sample values. If this
+field is missing, a value of 0 is assumed.</p>
+</dd>
+<dt>init_value<span class="classifier">list, int, optional</span></dt><dd><p>This will be applied as the passed list unless a single int is passed
+instead - in which case the int will be assigned for all channels.
+This field can be present only if the ADC zero is also present. It
+specifies the value of sample 0 in the signal, but is used only if the
+signal is stored in difference format. If this field is missing, a
+value equal to the ADC zero is assumed.</p>
+</dd>
+<dt>checksum<span class="classifier">list, optional</span></dt><dd><p>This field can be present only if the initial value is also present. It
+is a 16-bit signed checksum of all samples in the signal. (Thus the
+checksum is independent of the storage format.) If the entire record
+is read without skipping samples, and the header’s record line specifies
+the correct number of samples per signal, this field is compared against
+a computed checksum to verify that the signal file has not been corrupted.
+A value of zero may be used as a field placeholder if the number of
+samples is unspecified.</p>
+</dd>
+<dt>block_size<span class="classifier">list, int, optional</span></dt><dd><p>This will be applied as the passed list unless a single int is passed
+instead - in which case the int will be assigned for all channels.
+This field can be present only if the checksum is present. This field
+is an integer and is usually 0. If the signal is stored in a file
+that must be read in blocks of a specific size, however, this field
+specifies the block size in bytes. (On UNIX systems, this is the case
+only for character special files, corresponding to certain tape and
+raw disk files. If necessary, the block size may be given as a negative
+number to indicate that the associated file lacks I/O driver support for
+some operations.) All signals belonging to the same signal group have
+the same block size.</p>
+</dd>
+<dt>record_only<span class="classifier">bool, optional</span></dt><dd><p>Whether to only return the record information (True) or not (False).
+If false, this function will generate both a .dat and .hea file.</p>
+</dd>
+<dt>header<span class="classifier">bool, optional</span></dt><dd><p>Whether to assume the CSV has a first line header (True) or not (False)
+which defines the signal names. If false, this function will generate
+either the signal names provided by <cite>sig_name</cite> or set <cite>[ch_1, ch_2, …]</cite>
+as the default.</p>
+</dd>
+<dt>delimiter<span class="classifier">str, optional</span></dt><dd><p>What to use as the delimiter for the file to separate data. The default
+if a comma (‘,’). Other common delimiters are tabs (’   ‘), spaces (’ ‘),
+pipes (‘|’), and colons (‘:’).</p>
+</dd>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>Whether to print all the information read about the file (True) or
+not (False).</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>record<span class="classifier">Record or MultiRecord, optional</span></dt><dd><p>The WFDB Record or MultiRecord object representing the contents
+of the CSV file read.</p>
+</dd>
+</dl>
+<p>CSVs should be in the following format:</p>
+<p>sig_1_name,sig_2_name,…
+sig_1_val_1,sig_2_val_1,…
+sig_1_val_2,sig_2_val_2,…
+…,…,…</p>
+<p>Or this format if <cite>header=False</cite> is defined:</p>
+<p>sig_1_val_1,sig_2_val_1,…
+sig_1_val_2,sig_2_val_2,…
+…,…,…</p>
+<p>The signal will be saved defaultly as a <cite>p_signal</cite> so both floats and
+ints are acceptable.</p>
+<p>Create the header (‘.hea’) and record (‘.dat’) files, specifies both
+units to be ‘mV’
+&gt;&gt;&gt; wfdb.csv2mit(‘sample-data/100.csv’, fs=360, units=’mV’)</p>
+<p>Create the header (‘.hea’) and record (‘.dat’) files, change units for
+each signal
+&gt;&gt;&gt; wfdb.csv2mit(‘sample-data/100.csv’, fs=360, units=[‘mV’,’kV’])</p>
+<p>Return just the record, note the use of lists to specify which values should
+be applied to each signal
+&gt;&gt;&gt; csv_record = wfdb.csv2mit(‘sample-data/100.csv’, fs=360, units=[‘mV’,’mV’],</p>
+<blockquote>
+<div><p>fmt=[‘80’,212’], adc_gain=[100,200],
+baseline=[1024,512], record_only=True)</p>
+</div></blockquote>
+<p>Return just the record, note the use of single strings and ints to specify
+when fields can be applied to all signals
+&gt;&gt;&gt; csv_record = wfdb.csv2mit(‘sample-data/100.csv’, fs=360, units=’mV’,</p>
+<blockquote>
+<div><p>fmt=[‘80’,’212’], adc_gain=200, baseline=1024,
+record_only=True)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.edf2mit">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">edf2mit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rdedfann_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.edf2mit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert EDF formatted files to MIT format.</p>
+<p>Many EDF files contain signals at widely varying sampling frequencies.
+<cite>edf2mit</cite> handles these properly, but the default behavior of most WFDB
+applications is to read such data in low-resolution mode (in which all
+signals are resampled at the lowest sampling frequency used for any signal
+in the record). This is almost certainly not what you want if, for
+example, the record contains EEG signals sampled at 200 Hz and body
+temperature sampled at 1 Hz; by default, applications such as <cite>rdsamp</cite>
+will resample the EEGs (and any other signals in the record) at 1 Hz. To
+avoid this behavior, you can set <cite>smooth_frames</cite> to False (high resolution)
+provided by <cite>rdrecord</cite> and a few other WFDB applications.</p>
+<p>Note that applications built using version 3.1.0 and later versions of
+the WFDB-Python library can read EDF files directly, so that the conversion
+performed by <cite>edf2mit</cite> is no longer necessary. However, one can still use
+this function to produce WFDB-compatible files from EDF files if desired.</p>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The name of the input EDF record to be read.</p>
+</dd>
+<dt>pn_dir<span class="classifier">str, optional</span></dt><dd><p>Option used to stream data from Physionet. The Physionet
+database directory from which to find the required record files.
+eg. For record ‘100’ in ‘<a class="reference external" href="http://physionet.org/content/mitdb">http://physionet.org/content/mitdb</a>’
+pn_dir=’mitdb’.</p>
+</dd>
+<dt>delete_file<span class="classifier">bool, optional</span></dt><dd><p>Whether to delete the saved EDF file (False) or not (True)
+after being imported.</p>
+</dd>
+<dt>record_only<span class="classifier">bool, optional</span></dt><dd><p>Whether to only return the record information (True) or not (False).
+If false, this function will generate both a .dat and .hea file.</p>
+</dd>
+<dt>header_only<span class="classifier">bool, optional</span></dt><dd><p>Whether to only return the header information (True) or not (False).
+If true, this function will only return <cite>[‘fs’, ‘sig_len’, ‘n_sig’,
+‘base_date’, ‘base_time’, ‘units’, ‘sig_name’, ‘comments’]</cite>.</p>
+</dd>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>Whether to print all the information read about the file (True) or
+not (False).</p>
+</dd>
+<dt>rdedfann_flag<span class="classifier">bool, optional</span></dt><dd><p>Whether the function is being called by <cite>rdedfann</cite> or the user. If it
+is being called by the user and the file has annotations, then warn
+them that the EDF file has annotations and that they should use
+<cite>rdedfann</cite> instead.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>record<span class="classifier">dict, optional</span></dt><dd><p>All of the record information needed to generate MIT formatted files.
+Only returns if ‘record_only’ is set to True, else generates the
+corresponding .dat and .hea files. This record file will not match the
+<cite>rdrecord</cite> output since it will only give us the digital signal for now.</p>
+</dd>
+</dl>
+<p>The entire file is composed of (seen here: <a class="reference external" href="https://www.edfplus.info/specs/edf.html">https://www.edfplus.info/specs/edf.html</a>):</p>
+<p>HEADER RECORD (we suggest to also adopt the 12 simple additional EDF+ specs)
+8 ascii : version of this data format (0)
+80 ascii : local patient identification (mind item 3 of the additional EDF+ specs)
+80 ascii : local recording identification (mind item 4 of the additional EDF+ specs)
+8 ascii : startdate of recording (dd.mm.yy) (mind item 2 of the additional EDF+ specs)
+8 ascii : starttime of recording (hh.mm.ss)
+8 ascii : number of bytes in header record
+44 ascii : reserved
+8 ascii : number of data records (-1 if unknown, obey item 10 of the additional EDF+ specs)
+8 ascii : duration of a data record, in seconds
+4 ascii : number of signals (ns) in data record
+ns * 16 ascii : ns * label (e.g. EEG Fpz-Cz or Body temp) (mind item 9 of the additional EDF+ specs)
+ns * 80 ascii : ns * transducer type (e.g. AgAgCl electrode)
+ns * 8 ascii : ns * physical dimension (e.g. uV or degreeC)
+ns * 8 ascii : ns * physical minimum (e.g. -500 or 34)
+ns * 8 ascii : ns * physical maximum (e.g. 500 or 40)
+ns * 8 ascii : ns * digital minimum (e.g. -2048)
+ns * 8 ascii : ns * digital maximum (e.g. 2047)
+ns * 80 ascii : ns * prefiltering (e.g. HP:0.1Hz LP:75Hz)
+ns * 8 ascii : ns * nr of samples in each data record
+ns * 32 ascii : ns * reserved</p>
+<p>DATA RECORD
+nr of samples[1] * integer : first signal in the data record
+nr of samples[2] * integer : second signal
+..
+..
+nr of samples[ns] * integer : last signal</p>
+<p>Bytes   0 - 127: descriptive text
+Bytes 128 - 131: master tag (data type = matrix)
+Bytes 132 - 135: master tag (data size)
+Bytes 136 - 151: array flags (4 byte tag with data type, 4 byte</p>
+<blockquote>
+<div><p>tag with subelement size, 8 bytes of content)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Bytes 152 - 167: array dimension (4 byte tag with data type, 4</dt><dd><p>byte tag with subelement size, 8 bytes of content)</p>
+</dd>
+<dt>Bytes 168 - 183: array name (4 byte tag with data type, 4 byte</dt><dd><p>tag with subelement size, 8 bytes of content)</p>
+</dd>
+<dt>Bytes 184 - …: array content (4 byte tag with data type, 4 byte</dt><dd><p>tag with subelement size, … bytes of content)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">edf_record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">edf2mit</span><span class="p">(</span><span class="s1">&#39;x001_FAROS.edf&#39;</span><span class="p">,</span>
+<span class="go">                              pn_dir=&#39;simultaneous-measurements/raw_data&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.mit2edf">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">mit2edf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampfrom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edf_plus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.mit2edf" title="Permalink to this definition">¶</a></dt>
+<dd><p>These programs convert EDF (European Data Format) files into
+WFDB-compatible files (as used in PhysioNet) and vice versa. European
+Data Format (EDF) was originally designed for storage of polysomnograms.</p>
+<p>Note that WFDB format does not include a standard way to specify the
+transducer type or the prefiltering specification; these parameters are
+not preserved by these conversion programs. Also note that use of the
+standard signal and unit names specified for EDF is permitted but not
+enforced by <cite>mit2edf</cite>.</p>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The name of the input WFDB record to be read. Can also work with both
+EDF and WAV files.</p>
+</dd>
+<dt>pn_dir<span class="classifier">str, optional</span></dt><dd><p>Option used to stream data from Physionet. The Physionet
+database directory from which to find the required record files.
+eg. For record ‘100’ in ‘<a class="reference external" href="http://physionet.org/content/mitdb">http://physionet.org/content/mitdb</a>’
+pn_dir=’mitdb’.</p>
+</dd>
+<dt>sampfrom<span class="classifier">int, optional</span></dt><dd><p>The starting sample number to read for all channels.</p>
+</dd>
+<dt>sampto<span class="classifier">int, ‘end’, optional</span></dt><dd><p>The sample number at which to stop reading for all channels.
+Reads the entire duration by default.</p>
+</dd>
+<dt>channels<span class="classifier">list, optional</span></dt><dd><p>List of integer indices specifying the channels to be read.
+Reads all channels by default.</p>
+</dd>
+<dt>output_filename<span class="classifier">str, optional</span></dt><dd><p>The desired name of the output file. If this value set to the
+default value of ‘’, then the output filename will be ‘REC.edf’.</p>
+</dd>
+<dt>edf_plus<span class="classifier">bool, optional</span></dt><dd><p>Whether to write the output file in EDF (False) or EDF+ (True) format.</p>
+</dd>
+</dl>
+<p>N/A</p>
+<p>The entire file is composed of (seen here: <a class="reference external" href="https://www.edfplus.info/specs/edf.html">https://www.edfplus.info/specs/edf.html</a>):</p>
+<p>HEADER RECORD (we suggest to also adopt the 12 simple additional EDF+ specs)
+8 ascii : version of this data format (0)
+80 ascii : local patient identification (mind item 3 of the additional EDF+ specs)
+80 ascii : local recording identification (mind item 4 of the additional EDF+ specs)
+8 ascii : startdate of recording (dd.mm.yy) (mind item 2 of the additional EDF+ specs)
+8 ascii : starttime of recording (hh.mm.ss)
+8 ascii : number of bytes in header record
+44 ascii : reserved
+8 ascii : number of data records (-1 if unknown, obey item 10 of the additional EDF+ specs)
+8 ascii : duration of a data record, in seconds
+4 ascii : number of signals (ns) in data record
+ns * 16 ascii : ns * label (e.g. EEG Fpz-Cz or Body temp) (mind item 9 of the additional EDF+ specs)
+ns * 80 ascii : ns * transducer type (e.g. AgAgCl electrode)
+ns * 8 ascii : ns * physical dimension (e.g. uV or degreeC)
+ns * 8 ascii : ns * physical minimum (e.g. -500 or 34)
+ns * 8 ascii : ns * physical maximum (e.g. 500 or 40)
+ns * 8 ascii : ns * digital minimum (e.g. -2048)
+ns * 8 ascii : ns * digital maximum (e.g. 2047)
+ns * 80 ascii : ns * prefiltering (e.g. HP:0.1Hz LP:75Hz)
+ns * 8 ascii : ns * nr of samples in each data record
+ns * 32 ascii : ns * reserved</p>
+<p>DATA RECORD
+nr of samples[1] * integer : first signal in the data record
+nr of samples[2] * integer : second signal
+..
+..
+nr of samples[ns] * integer : last signal</p>
+<p>Bytes   0 - 127: descriptive text
+Bytes 128 - 131: master tag (data type = matrix)
+Bytes 132 - 135: master tag (data size)
+Bytes 136 - 151: array flags (4 byte tag with data type, 4 byte</p>
+<blockquote>
+<div><p>tag with subelement size, 8 bytes of content)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Bytes 152 - 167: array dimension (4 byte tag with data type, 4</dt><dd><p>byte tag with subelement size, 8 bytes of content)</p>
+</dd>
+<dt>Bytes 168 - 183: array name (4 byte tag with data type, 4 byte</dt><dd><p>tag with subelement size, 8 bytes of content)</p>
+</dd>
+<dt>Bytes 184 - …: array content (4 byte tag with data type, 4 byte</dt><dd><p>tag with subelement size, … bytes of content)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">mit2edf</span><span class="p">(</span><span class="s1">&#39;100&#39;</span><span class="p">,</span> <span class="n">pn_dir</span><span class="o">=</span><span class="s1">&#39;pwave&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output file name is ‘100.edf’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.mit2wav">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">mit2wav</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampfrom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.mit2wav" title="Permalink to this definition">¶</a></dt>
+<dd><p>This program converts a WFDB record into .wav format (format 16, multiplexed
+signals, with embedded header information).  Use ‘wav2mit’ to perform the
+reverse conversion.</p>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The name of the input WFDB record to be read. Can also work with both
+EDF and WAV files.</p>
+</dd>
+<dt>pn_dir<span class="classifier">str, optional</span></dt><dd><p>Option used to stream data from Physionet. The Physionet
+database directory from which to find the required record files.
+eg. For record ‘100’ in ‘<a class="reference external" href="http://physionet.org/content/mitdb">http://physionet.org/content/mitdb</a>’
+pn_dir=’mitdb’.</p>
+</dd>
+<dt>sampfrom<span class="classifier">int, optional</span></dt><dd><p>The starting sample number to read for all channels.</p>
+</dd>
+<dt>sampto<span class="classifier">int, ‘end’, optional</span></dt><dd><p>The sample number at which to stop reading for all channels.
+Reads the entire duration by default.</p>
+</dd>
+<dt>channels<span class="classifier">list, optional</span></dt><dd><p>List of integer indices specifying the channels to be read.
+Reads all channels by default.</p>
+</dd>
+<dt>output_filename<span class="classifier">str, optional</span></dt><dd><p>The desired name of the output file. If this value set to the
+default value of ‘’, then the output filename will be ‘REC.wav’.</p>
+</dd>
+<dt>write_header<span class="classifier">bool, optional</span></dt><dd><p>Whether to write (True) or not to write (False) a header file to
+accompany the generated WAV file. The default value is ‘False’.</p>
+</dd>
+</dl>
+<p>N/A</p>
+<p>Files that can be processed successfully using <cite>wav2mit</cite> always have exactly
+three chunks (a header chunk, a format chunk, and a data chunk).  In .wav
+files, binary data are always written in little-endian format (least
+significant byte first). The format of <cite>wav2mit</cite>’s input files is as follows:</p>
+<p>[Header chunk]
+Bytes  0 -  3: “RIFF” [4 ASCII characters]
+Bytes  4 -  7: L-8 (number of bytes to follow in the file, excluding bytes 0-7)
+Bytes  8 - 11: “WAVE” [4 ASCII characters]</p>
+<p>[Format chunk]
+Bytes 12 - 15: “fmt ” [4 ASCII characters, note trailing space]
+Bytes 16 - 19: 16 (format chunk length in bytes, excluding bytes 12-19)
+Bytes 20 - 35: format specification, consisting of:
+Bytes 20 - 21: 1 (format tag, indicating no compression is used)
+Bytes 22 - 23: number of signals (1 - 65535)
+Bytes 24 - 27: sampling frequency in Hz (per signal)</p>
+<blockquote>
+<div><p>Note that the sampling frequency in a .wav file must be an
+integer multiple of 1 Hz, a restriction that is not imposed
+by MIT (WFDB) format.</p>
+</div></blockquote>
+<p>Bytes 28 - 31: bytes per second (sampling frequency * frame size in bytes)
+Bytes 32 - 33: frame size in bytes
+Bytes 34 - 35: bits per sample (ADC resolution in bits)</p>
+<blockquote>
+<div><p>Note that the actual ADC resolution (e.g., 12) is written in
+this field, although each output sample is right-padded to fill
+a full (16-bit) word. (.wav format allows for 8, 16, 24, and
+32 bits per sample)</p>
+</div></blockquote>
+<p>[Data chunk]
+Bytes 36 - 39: “data” [4 ASCII characters]
+Bytes 40 - 43: L-44 (number of bytes to follow in the data chunk)
+Bytes 44 - L-1: sample data, consisting of:
+Bytes 44 - 45: sample 0, channel 0
+Bytes 46 - 47: sample 0, channel 1
+… etc. (same order as in a multiplexed WFDB signal file)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">mit2wav</span><span class="p">(</span><span class="s1">&#39;100&#39;</span><span class="p">,</span> <span class="n">pn_dir</span><span class="o">=</span><span class="s1">&#39;pwave&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output file name is ‘100.wav’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.rdheader">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">rdheader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rd_segments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.rdheader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a WFDB header file and return a <cite>Record</cite> or <cite>MultiRecord</cite>
+object with the record descriptors as attributes.</p>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The name of the WFDB record to be read, without any file
+extensions. If the argument contains any path delimiter
+characters, the argument will be interpreted as PATH/BASE_RECORD.
+Both relative and absolute paths are accepted. If the <cite>pn_dir</cite>
+parameter is set, this parameter should contain just the base
+record name, and the files fill be searched for remotely.
+Otherwise, the data files will be searched for in the local path.</p>
+</dd>
+<dt>pn_dir<span class="classifier">str, optional</span></dt><dd><p>Option used to stream data from Physionet. The Physionet
+database directory from which to find the required record files.
+eg. For record ‘100’ in ‘<a class="reference external" href="http://physionet.org/content/mitdb">http://physionet.org/content/mitdb</a>’
+pn_dir=’mitdb’.</p>
+</dd>
+<dt>rd_segments<span class="classifier">bool, optional</span></dt><dd><p>Used when reading multi-segment headers. If True, segment headers will
+also be read (into the record object’s <cite>segments</cite> field).</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>record<span class="classifier">Record or MultiRecord</span></dt><dd><p>The WFDB Record or MultiRecord object representing the contents
+of the header read.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ecg_record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="s1">&#39;sample-data/test01_00s&#39;</span><span class="p">,</span> <span class="n">sampfrom</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+<span class="go">                               channels = [1,3])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.rdrecord">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">rdrecord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampfrom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">physical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m2s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_skew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.rdrecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a WFDB record and return the signal and record descriptors as
+attributes in a Record or MultiRecord object.</p>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The name of the WFDB record to be read, without any file
+extensions. If the argument contains any path delimiter
+characters, the argument will be interpreted as PATH/BASE_RECORD.
+Both relative and absolute paths are accepted. If the <cite>pn_dir</cite>
+parameter is set, this parameter should contain just the base
+record name, and the files fill be searched for remotely.
+Otherwise, the data files will be searched for in the local path.
+Can also handle .edf and .wav files as long as the extension is
+provided in the <cite>record_name</cite>.</p>
+</dd>
+<dt>sampfrom<span class="classifier">int, optional</span></dt><dd><p>The starting sample number to read for all channels.</p>
+</dd>
+<dt>sampto<span class="classifier">int, ‘end’, optional</span></dt><dd><p>The sample number at which to stop reading for all channels.
+Reads the entire duration by default.</p>
+</dd>
+<dt>channels<span class="classifier">list, optional</span></dt><dd><p>List of integer indices specifying the channels to be read.
+Reads all channels by default.</p>
+</dd>
+<dt>physical<span class="classifier">bool, optional</span></dt><dd><p>Specifies whether to return signals in physical units in the
+<cite>p_signal</cite> field (True), or digital units in the <cite>d_signal</cite>
+field (False).</p>
+</dd>
+<dt>pn_dir<span class="classifier">str, optional</span></dt><dd><p>Option used to stream data from Physionet. The Physionet
+database directory from which to find the required record files.
+eg. For record ‘100’ in ‘<a class="reference external" href="http://physionet.org/content/mitdb">http://physionet.org/content/mitdb</a>’
+pn_dir=’mitdb’.</p>
+</dd>
+<dt>m2s<span class="classifier">bool, optional</span></dt><dd><p>Used when reading multi-segment records. Specifies whether to
+directly return a WFDB MultiRecord object (False), or to convert
+it into and return a WFDB Record object (True).</p>
+</dd>
+<dt>smooth_frames<span class="classifier">bool, optional</span></dt><dd><p>Specifies whether to smooth the samples in signals with more
+than one sample per frame and return an (MxN) uniform numpy
+array as the <cite>d_signal</cite> or <cite>p_signal</cite> field (True), or to
+return a list of 1d numpy arrays containing every expanded
+sample as the <cite>e_d_signal</cite> or <cite>e_p_signal</cite> field (False).</p>
+</dd>
+<dt>ignore_skew<span class="classifier">bool, optional</span></dt><dd><p>Used when reading records with at least one skewed signal.
+Specifies whether to apply the skew to align the signals in the
+output variable (False), or to ignore the skew field and load in
+all values contained in the dat files unaligned (True).</p>
+</dd>
+<dt>return_res<span class="classifier">int, optional</span></dt><dd><p>The numpy array dtype of the returned signals. Options are: 64,
+32, 16, and 8, where the value represents the numpy int or float
+dtype. Note that the value cannot be 8 when physical is True
+since there is no float8 format.</p>
+</dd>
+<dt>force_channels<span class="classifier">bool, optional</span></dt><dd><p>Used when reading multi-segment variable layout records. Whether
+to update the layout specification record, and the converted
+Record object if <cite>m2s</cite> is True, to match the input <cite>channels</cite>
+argument, or to omit channels in which no read segment contains
+the signals.</p>
+</dd>
+<dt>channel_names<span class="classifier">list, optional</span></dt><dd><p>List of channel names to return. If this parameter is specified,
+it takes precedence over <cite>channels</cite>.</p>
+</dd>
+<dt>warn_empty<span class="classifier">bool, optional</span></dt><dd><p>Whether to display a warning if the specified channel indices
+or names are not contained in the record, and no signal is
+returned.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>record<span class="classifier">Record or MultiRecord</span></dt><dd><p>The WFDB Record or MultiRecord object representing the contents
+of the record read.</p>
+</dd>
+</dl>
+<p>If a signal range or channel selection is specified when calling
+this function, the resulting attributes of the returned object will
+be set to reflect the section of the record that is actually read,
+rather than necessarily the entire record. For example, if
+<cite>channels=[0, 1, 2]</cite> is specified when reading a 12 channel record,
+the ‘n_sig’ attribute will be 3, not 12.</p>
+<p>The <cite>rdsamp</cite> function exists as a simple alternative to <cite>rdrecord</cite>
+for the common purpose of extracting the physical signals and a few
+important descriptor fields.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="s1">&#39;sample-data/test01_00s&#39;</span><span class="p">,</span> <span class="n">sampfrom</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+<span class="go">                           channels=[1, 3])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.rdsamp">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">rdsamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampfrom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.rdsamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a WFDB record, and return the physical signals and a few important
+descriptor fields.</p>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The name of the WFDB record to be read (without any file
+extensions). If the argument contains any path delimiter
+characters, the argument will be interpreted as PATH/baserecord
+and the data files will be searched for in the local path.</p>
+</dd>
+<dt>sampfrom<span class="classifier">int, optional</span></dt><dd><p>The starting sample number to read for all channels.</p>
+</dd>
+<dt>sampto<span class="classifier">int, ‘end’, optional</span></dt><dd><p>The sample number at which to stop reading for all channels.
+Reads the entire duration by default.</p>
+</dd>
+<dt>channels<span class="classifier">list, optional</span></dt><dd><p>List of integer indices specifying the channels to be read.
+Reads all channels by default.</p>
+</dd>
+<dt>pn_dir<span class="classifier">str, optional</span></dt><dd><p>Option used to stream data from Physionet. The Physionet
+database directory from which to find the required record files.
+eg. For record ‘100’ in ‘<a class="reference external" href="http://physionet.org/content/mitdb">http://physionet.org/content/mitdb</a>’
+pn_dir=’mitdb’.</p>
+</dd>
+<dt>channel_names<span class="classifier">list, optional</span></dt><dd><p>List of channel names to return. If this parameter is specified,
+it takes precedence over <cite>channels</cite>.</p>
+</dd>
+<dt>warn_empty<span class="classifier">bool, optional</span></dt><dd><p>Whether to display a warning if the specified channel indices
+or names are not contained in the record, and no signal is
+returned.</p>
+</dd>
+<dt>return_res<span class="classifier">int, optional</span></dt><dd><p>The numpy array dtype of the returned signals. Options are: 64,
+32, 16, and 8, where the value represents the numpy int or float
+dtype. Note that the value cannot be 8 when physical is True
+since there is no float8 format.</p>
+</dd>
+</dl>
+<dl>
+<dt>signals<span class="classifier">ndarray</span></dt><dd><p>A 2d numpy array storing the physical signals from the record.</p>
+</dd>
+<dt>fields<span class="classifier">dict</span></dt><dd><p>A dictionary containing several key attributes of the read
+record:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>fs: The sampling frequency of the record.</p></li>
+<li><p>units: The units for each channel.</p></li>
+<li><p>sig_name: The signal name for each channel.</p></li>
+<li><p>comments: Any comments written in the header.</p></li>
+</ul>
+</div></blockquote>
+</dd>
+</dl>
+<p>If a signal range or channel selection is specified when calling
+this function, the resulting attributes of the returned object will
+be set to reflect the section of the record that is actually read,
+rather than necessarily the entire record. For example, if
+<cite>channels=[0, 1, 2]</cite> is specified when reading a 12 channel record,
+the ‘n_sig’ attribute will be 3, not 12.</p>
+<p>The <cite>rdrecord</cite> function is the base function upon which this one is
+built. It returns all attributes present, along with the signals, as
+attributes in a <cite>Record</cite> object. The function, along with the
+returned data type, has more options than <cite>rdsamp</cite> for users who
+wish to more directly manipulate WFDB content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">signals</span><span class="p">,</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdsamp</span><span class="p">(</span><span class="s1">&#39;sample-data/test01_00s&#39;</span><span class="p">,</span>
+<span class="go">                                  sampfrom=800,</span>
+<span class="go">                                  channel =[1,3])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.wav2mit">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">wav2mit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.wav2mit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert .wav (format 16, multiplexed signals, with embedded header
+information) formatted files to MIT format. See here for more details about
+the formatting of a .wav file: <a class="reference external" href="http://soundfile.sapp.org/doc/WaveFormat/">http://soundfile.sapp.org/doc/WaveFormat/</a>.</p>
+<p>This process may not work with some .wav files that are encoded using
+variants of the original .wav format that are not WFDB-compatible. In
+principle, this program should be able to recognize such files by their
+format codes, and it will produce an error message in such cases. If
+the format code is incorrect, however, <cite>wav2mit</cite> may not recognize that
+an error has occurred.</p>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The name of the input .wav record to be read.</p>
+</dd>
+<dt>pn_dir<span class="classifier">str, optional</span></dt><dd><p>Option used to stream data from Physionet. The Physionet
+database directory from which to find the required record files.
+eg. For record ‘100’ in ‘<a class="reference external" href="http://physionet.org/content/mitdb">http://physionet.org/content/mitdb</a>’
+pn_dir=’mitdb’.</p>
+</dd>
+<dt>delete_file<span class="classifier">bool, optional</span></dt><dd><p>Whether to delete the saved .wav file (False) or not (True)
+after being imported.</p>
+</dd>
+<dt>record_only<span class="classifier">bool, optional</span></dt><dd><p>Whether to only return the record information (True) or not (False).
+If false, this function will generate both a .dat and .hea file.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>record<span class="classifier">dict, optional</span></dt><dd><p>All of the record information needed to generate MIT formatted files.
+Only returns if ‘record_only’ is set to True, else generates the
+corresponding .dat and .hea files. This record file will not match the
+<cite>rdrecord</cite> output since it will only give us the digital signal for now.</p>
+</dd>
+</dl>
+<p>Files that can be processed successfully using <cite>wav2mit</cite> always have exactly
+three chunks (a header chunk, a format chunk, and a data chunk).  In .wav
+files, binary data are always written in little-endian format (least
+significant byte first). The format of <cite>wav2mit</cite>’s input files is as follows:</p>
+<p>[Header chunk]
+Bytes  0 -  3: “RIFF” [4 ASCII characters]
+Bytes  4 -  7: L-8 (number of bytes to follow in the file, excluding bytes 0-7)
+Bytes  8 - 11: “WAVE” [4 ASCII characters]</p>
+<p>[Format chunk]
+Bytes 12 - 15: “fmt ” [4 ASCII characters, note trailing space]
+Bytes 16 - 19: 16 (format chunk length in bytes, excluding bytes 12-19)
+Bytes 20 - 35: format specification, consisting of:
+Bytes 20 - 21: 1 (format tag, indicating no compression is used)
+Bytes 22 - 23: number of signals (1 - 65535)
+Bytes 24 - 27: sampling frequency in Hz (per signal)</p>
+<blockquote>
+<div><p>Note that the sampling frequency in a .wav file must be an
+integer multiple of 1 Hz, a restriction that is not imposed
+by MIT (WFDB) format.</p>
+</div></blockquote>
+<p>Bytes 28 - 31: bytes per second (sampling frequency * frame size in bytes)
+Bytes 32 - 33: frame size in bytes
+Bytes 34 - 35: bits per sample (ADC resolution in bits)</p>
+<blockquote>
+<div><p>Note that the actual ADC resolution (e.g., 12) is written in
+this field, although each output sample is right-padded to fill
+a full (16-bit) word. (.wav format allows for 8, 16, 24, and
+32 bits per sample)</p>
+</div></blockquote>
+<p>[Data chunk]
+Bytes 36 - 39: “data” [4 ASCII characters]
+Bytes 40 - 43: L-44 (number of bytes to follow in the data chunk)
+Bytes 44 - L-1: sample data, consisting of:
+Bytes 44 - 45: sample 0, channel 0
+Bytes 46 - 47: sample 0, channel 1
+… etc. (same order as in a multiplexed WFDB signal file)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wav_record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">wav2mit</span><span class="p">(</span><span class="s1">&#39;sample-data/SC4001E0-PSG.wav&#39;</span><span class="p">,</span> <span class="n">record_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.wrsamp">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">wrsamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.wrsamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a single segment WFDB record, creating a WFDB header file and any
+associated dat files.</p>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The string name of the WFDB record to be written (without any file
+extensions). Must not contain any “.” since this would indicate an
+EDF file which is not compatible at this point.</p>
+</dd>
+<dt>fs<span class="classifier">int, float</span></dt><dd><p>The sampling frequency of the record.</p>
+</dd>
+<dt>units<span class="classifier">list</span></dt><dd><p>A list of strings giving the units of each signal channel.</p>
+</dd>
+<dt>sig_name<span class="classifier">list, str</span></dt><dd><p>A list of strings giving the signal name of each signal channel.</p>
+</dd>
+<dt>p_signal<span class="classifier">ndarray, optional</span></dt><dd><p>An (MxN) 2d numpy array, where M is the signal length. Gives the
+physical signal values intended to be written. Either p_signal or
+d_signal must be set, but not both. If p_signal is set, this method will
+use it to perform analogue-digital conversion, writing the resultant
+digital values to the dat file(s). If fmt is set, gain and baseline must
+be set or unset together. If fmt is unset, gain and baseline must both
+be unset.</p>
+</dd>
+<dt>d_signal<span class="classifier">ndarray, optional</span></dt><dd><p>An (MxN) 2d numpy array, where M is the signal length. Gives the
+digital signal values intended to be directly written to the dat
+file(s). The dtype must be an integer type. Either p_signal or d_signal
+must be set, but not both. In addition, if d_signal is set, fmt, gain
+and baseline must also all be set.</p>
+</dd>
+<dt>fmt<span class="classifier">list, optional</span></dt><dd><p>A list of strings giving the WFDB format of each file used to store each
+channel. Accepted formats are: ‘80’,’212’,’16’,’24’, and ‘32’. There are
+other WFDB formats as specified by:
+<a class="reference external" href="https://www.physionet.org/physiotools/wag/signal-5.htm">https://www.physionet.org/physiotools/wag/signal-5.htm</a>
+but this library will not write (though it will read) those file types.</p>
+</dd>
+<dt>adc_gain<span class="classifier">list, optional</span></dt><dd><p>A list of numbers specifying the ADC gain.</p>
+</dd>
+<dt>baseline<span class="classifier">list, optional</span></dt><dd><p>A list of integers specifying the digital baseline.</p>
+</dd>
+<dt>comments<span class="classifier">list, optional</span></dt><dd><p>A list of string comments to be written to the header file.</p>
+</dd>
+<dt>base_time<span class="classifier">str, optional</span></dt><dd><p>A string of the record’s start time in 24h ‘HH:MM:SS(.ms)’ format.</p>
+</dd>
+<dt>base_date<span class="classifier">str, optional</span></dt><dd><p>A string of the record’s start date in ‘DD/MM/YYYY’ format.</p>
+</dd>
+<dt>write_dir<span class="classifier">str, optional</span></dt><dd><p>The directory in which to write the files.</p>
+</dd>
+</dl>
+<p>N/A</p>
+<p>This is a gateway function, written as a simple method to write WFDB record
+files using the most common parameters. Therefore not all WFDB fields can be
+set via this function.</p>
+<p>For more control over attributes, create a <cite>Record</cite> object, manually set its
+attributes, and call its <cite>wrsamp</cite> instance method. If you choose this more
+advanced method, see also the <cite>set_defaults</cite>, <cite>set_d_features</cite>, and
+<cite>set_p_features</cite> instance methods to help populate attributes.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Read part of a record from Physionet</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signals</span><span class="p">,</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdsamp</span><span class="p">(</span><span class="s1">&#39;a103l&#39;</span><span class="p">,</span> <span class="n">sampfrom</span><span class="o">=</span><span class="mi">50000</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+<span class="go">                                  pn_dir=&#39;challenge-2015/training&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Write a local WFDB record (manually inserting fields)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">wrsamp</span><span class="p">(</span><span class="s1">&#39;ecgrecord&#39;</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mV&#39;</span><span class="p">,</span> <span class="s1">&#39;mV&#39;</span><span class="p">],</span>
+<span class="go">                sig_name=[&#39;I&#39;, &#39;II&#39;], p_signal=signals, fmt=[&#39;16&#39;, &#39;16&#39;])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wfdb.Record">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">Record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_p_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_d_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">counter_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_counter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samps_per_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byte_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checksum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.Record" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class representing single segment WFDB records.</p>
+<p>Record objects can be created using the initializer, by reading a WFDB
+header with <cite>rdheader</cite>, or a WFDB record (header and associated dat files)
+with <cite>rdrecord</cite>.</p>
+<p>The attributes of the Record object give information about the record as
+specified by: <a class="reference external" href="https://www.physionet.org/physiotools/wag/header-5.htm">https://www.physionet.org/physiotools/wag/header-5.htm</a></p>
+<p>In addition, the d_signal and p_signal attributes store the digital and
+physical signals of WFDB records with at least one channel.</p>
+<dl class="simple">
+<dt>p_signal<span class="classifier">ndarray, optional</span></dt><dd><p>An (MxN) 2d numpy array, where M is the signal length. Gives the
+physical signal values intended to be written. Either p_signal or
+d_signal must be set, but not both. If p_signal is set, this method will
+use it to perform analogue-digital conversion, writing the resultant
+digital values to the dat file(s). If fmt is set, gain and baseline must
+be set or unset together. If fmt is unset, gain and baseline must both
+be unset.</p>
+</dd>
+<dt>d_signal<span class="classifier">ndarray, optional</span></dt><dd><p>An (MxN) 2d numpy array, where M is the signal length. Gives the
+digital signal values intended to be directly written to the dat
+file(s). The dtype must be an integer type. Either p_signal or d_signal
+must be set, but not both. In addition, if d_signal is set, fmt, gain
+and baseline must also all be set.</p>
+</dd>
+<dt>e_p_signal<span class="classifier">ndarray, optional</span></dt><dd><p>The expanded physical conversion of the signal. Either a 2d numpy
+array or a list of 1d numpy arrays.</p>
+</dd>
+<dt>e_d_signal<span class="classifier">ndarray, optional</span></dt><dd><p>The expanded digital conversion of the signal. Either a 2d numpy
+array or a list of 1d numpy arrays.</p>
+</dd>
+<dt>record_name<span class="classifier">str, optional</span></dt><dd><p>The name of the WFDB record to be read, without any file
+extensions. If the argument contains any path delimiter
+characters, the argument will be interpreted as PATH/BASE_RECORD.
+Both relative and absolute paths are accepted. If the <cite>pn_dir</cite>
+parameter is set, this parameter should contain just the base
+record name, and the files fill be searched for remotely.
+Otherwise, the data files will be searched for in the local path.</p>
+</dd>
+<dt>n_sig<span class="classifier">int, optional</span></dt><dd><p>Total number of signals.</p>
+</dd>
+<dt>fs<span class="classifier">float, optional</span></dt><dd><p>The sampling frequency of the record.</p>
+</dd>
+<dt>counter_freq<span class="classifier">float, optional</span></dt><dd><p>The frequency used to start counting.</p>
+</dd>
+<dt>base_counter<span class="classifier">float, optional</span></dt><dd><p>The counter used at the start of the file.</p>
+</dd>
+<dt>sig_len<span class="classifier">int, optional</span></dt><dd><p>The total length of the signal.</p>
+</dd>
+<dt>base_time<span class="classifier">str, optional</span></dt><dd><p>A string of the record’s start time in 24h ‘HH:MM:SS(.ms)’ format.</p>
+</dd>
+<dt>base_date<span class="classifier">str, optional</span></dt><dd><p>A string of the record’s start date in ‘DD/MM/YYYY’ format.</p>
+</dd>
+<dt>file_name<span class="classifier">str, optional</span></dt><dd><p>The name of the file used for analysis.</p>
+</dd>
+<dt>fmt<span class="classifier">list, optional</span></dt><dd><p>A list of strings giving the WFDB format of each file used to store each
+channel. Accepted formats are: ‘80’,’212’,’16’,’24’, and ‘32’. There are
+other WFDB formats as specified by:
+<a class="reference external" href="https://www.physionet.org/physiotools/wag/signal-5.htm">https://www.physionet.org/physiotools/wag/signal-5.htm</a>
+but this library will not write (though it will read) those file types.</p>
+</dd>
+<dt>samps_per_frame<span class="classifier">int, optional</span></dt><dd><p>The total number of samples per frame.</p>
+</dd>
+<dt>skew<span class="classifier">float, optional</span></dt><dd><p>The offset used to allign signals.</p>
+</dd>
+<dt>byte_offset<span class="classifier">int, optional</span></dt><dd><p>The byte offset used to allign signals.</p>
+</dd>
+<dt>adc_gain<span class="classifier">list, optional</span></dt><dd><p>A list of numbers specifying the ADC gain.</p>
+</dd>
+<dt>baseline<span class="classifier">list, optional</span></dt><dd><p>A list of integers specifying the digital baseline.</p>
+</dd>
+<dt>units<span class="classifier">list, optional</span></dt><dd><p>A list of strings giving the units of each signal channel.</p>
+</dd>
+<dt>adc_res: int, optional</dt><dd><p>The value produced by the ADC given a given Volt input.</p>
+</dd>
+<dt>adc_zero: int, optional</dt><dd><p>The value produced by the ADC given a 0 Volt input.</p>
+</dd>
+<dt>init_value<span class="classifier">list, optional</span></dt><dd><p>The initial value of the signal.</p>
+</dd>
+<dt>checksum<span class="classifier">list, int, optional</span></dt><dd><p>The checksum of the signal.</p>
+</dd>
+<dt>block_size<span class="classifier">str, optional</span></dt><dd><p>The dimensions of the field data.</p>
+</dd>
+<dt>sig_name<span class="classifier">list, optional</span></dt><dd><p>A list of strings giving the signal name of each signal channel.</p>
+</dd>
+<dt>comments<span class="classifier">list, optional</span></dt><dd><p>A list of string comments to be written to the header file.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">Record</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">n_sig</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sig_len</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<span class="go">                     file_name=[&#39;r1.dat&#39;,&#39;r1.dat&#39;])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="wfdb.Record.adc">
+<span class="sig-name descname"><span class="pre">adc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expanded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.Record.adc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs analogue to digital conversion of the physical signal stored
+in p_signal if expanded is False, or e_p_signal if expanded is True.</p>
+<p>The p_signal/e_p_signal, fmt, gain, and baseline fields must all be
+valid.</p>
+<p>If inplace is True, the adc will be performed inplace on the variable,
+the d_signal/e_d_signal attribute will be set, and the
+p_signal/e_p_signal field will be set to None.</p>
+<dl class="simple">
+<dt>expanded<span class="classifier">bool, optional</span></dt><dd><p>Whether to transform the <cite>e_p_signal</cite> attribute (True) or
+the <cite>p_signal</cite> attribute (False).</p>
+</dd>
+<dt>inplace<span class="classifier">bool, optional</span></dt><dd><p>Whether to automatically set the object’s corresponding
+digital signal attribute and set the physical
+signal attribute to None (True), or to return the converted
+signal as a separate variable without changing the original
+physical signal attribute (False).</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>d_signal<span class="classifier">ndarray, optional</span></dt><dd><p>The digital conversion of the signal. Either a 2d numpy
+array or a list of 1d numpy arrays.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wfdb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdsamp</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d_signal</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">adc</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span><span class="o">.</span><span class="n">adc</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span><span class="o">.</span><span class="n">dac</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wfdb.Record.dac">
+<span class="sig-name descname"><span class="pre">dac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expanded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.Record.dac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the digital to analogue conversion of the signal stored
+in <cite>d_signal</cite> if expanded is False, or <cite>e_d_signal</cite> if expanded
+is True.</p>
+<p>The d_signal/e_d_signal, fmt, gain, and baseline fields must all be
+valid.</p>
+<p>If inplace is True, the dac will be performed inplace on the
+variable, the p_signal/e_p_signal attribute will be set, and the
+d_signal/e_d_signal field will be set to None.</p>
+<dl class="simple">
+<dt>expanded<span class="classifier">bool, optional</span></dt><dd><p>Whether to transform the <cite>e_d_signal attribute</cite> (True) or
+the <cite>d_signal</cite> attribute (False).</p>
+</dd>
+<dt>return_res<span class="classifier">int, optional</span></dt><dd><p>The numpy array dtype of the returned signals. Options are: 64,
+32, 16, and 8, where the value represents the numpy int or float
+dtype. Note that the value cannot be 8 when physical is True
+since there is no float8 format.</p>
+</dd>
+<dt>inplace<span class="classifier">bool, optional</span></dt><dd><p>Whether to automatically set the object’s corresponding
+physical signal attribute and set the digital signal
+attribute to None (True), or to return the converted
+signal as a separate variable without changing the original
+digital signal attribute (False).</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>p_signal<span class="classifier">ndarray, optional</span></dt><dd><p>The physical conversion of the signal. Either a 2d numpy
+array or a list of 1d numpy arrays.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wfdb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdsamp</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">physical</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p_signal</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">dac</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span><span class="o">.</span><span class="n">dac</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span><span class="o">.</span><span class="n">adc</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wfdb.Record.wrsamp">
+<span class="sig-name descname"><span class="pre">wrsamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expanded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.Record.wrsamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a WFDB header file and any associated dat files from this
+object.</p>
+<dl class="simple">
+<dt>expanded<span class="classifier">bool, optional</span></dt><dd><p>Whether to write the expanded signal (e_d_signal) instead
+of the uniform signal (d_signal).</p>
+</dd>
+<dt>write_dir<span class="classifier">str, optional</span></dt><dd><p>The directory in which to write the files.</p>
+</dd>
+</dl>
+<p>N/A</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wfdb.MultiRecord">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">MultiRecord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">segments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">counter_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_counter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seg_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seg_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_segments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.MultiRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class representing multi-segment WFDB records.</p>
+<p>MultiRecord objects can be created using the initializer, or by reading a
+multi-segment WFDB record using ‘rdrecord’ with the <cite>m2s</cite> (multi to single)
+input parameter set to False.</p>
+<p>The attributes of the MultiRecord object give information about the entire
+record as specified by: <a class="reference external" href="https://www.physionet.org/physiotools/wag/header-5.htm">https://www.physionet.org/physiotools/wag/header-5.htm</a></p>
+<p>In addition, the <cite>segments</cite> parameter is a list of Record objects
+representing each individual segment, or None representing empty segments,
+of the entire multi-segment record.</p>
+<p>Notably, this class has no attribute representing the signals as a whole.
+The ‘multi_to_single’ instance method can be called on MultiRecord objects
+to return a single segment representation of the record as a Record object.
+The resulting Record object will have its ‘p_signal’ field set.</p>
+<dl class="simple">
+<dt>segments<span class="classifier">list, optional</span></dt><dd><p>The segments to be read.</p>
+</dd>
+<dt>layout<span class="classifier">str, optional</span></dt><dd><p>Whether the record will be ‘fixed’ or ‘variable’.</p>
+</dd>
+<dt>record_name<span class="classifier">str, optional</span></dt><dd><p>The name of the WFDB record to be read, without any file
+extensions. If the argument contains any path delimiter
+characters, the argument will be interpreted as PATH/BASE_RECORD.
+Both relative and absolute paths are accepted. If the <cite>pn_dir</cite>
+parameter is set, this parameter should contain just the base
+record name, and the files fill be searched for remotely.
+Otherwise, the data files will be searched for in the local path.</p>
+</dd>
+<dt>n_sig<span class="classifier">int, optional</span></dt><dd><p>Total number of signals.</p>
+</dd>
+<dt>fs<span class="classifier">int, float, optional</span></dt><dd><p>The sampling frequency of the record.</p>
+</dd>
+<dt>counter_freq<span class="classifier">float, optional</span></dt><dd><p>The frequency used to start counting.</p>
+</dd>
+<dt>base_counter<span class="classifier">float, optional</span></dt><dd><p>The counter used at the start of the file.</p>
+</dd>
+<dt>sig_len<span class="classifier">int, optional</span></dt><dd><p>The total length of the signal.</p>
+</dd>
+<dt>base_time<span class="classifier">str, optional</span></dt><dd><p>A string of the record’s start time in 24h ‘HH:MM:SS(.ms)’ format.</p>
+</dd>
+<dt>base_date<span class="classifier">str, optional</span></dt><dd><p>A string of the record’s start date in ‘DD/MM/YYYY’ format.</p>
+</dd>
+<dt>seg_name<span class="classifier">str, optional</span></dt><dd><p>The name of the segment.</p>
+</dd>
+<dt>seg_len<span class="classifier">int, optional</span></dt><dd><p>The length of the segment.</p>
+</dd>
+<dt>comments<span class="classifier">list, optional</span></dt><dd><p>A list of string comments to be written to the header file.</p>
+</dd>
+<dt>sig_name<span class="classifier">str, optional</span></dt><dd><p>A list of strings giving the signal name of each signal channel.</p>
+</dd>
+<dt>sig_segments<span class="classifier">list, optional</span></dt><dd><p>The signal segments to be read.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">record_m</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">MultiRecord</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="s1">&#39;rm&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_sig</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+<span class="go">                                sig_len=9999, seg_name=[&#39;rm_1&#39;, &#39;~&#39;, rm_2&#39;],</span>
+<span class="go">                                seg_len=[800, 200, 900])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get a MultiRecord object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record_s</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdsamp</span><span class="p">(</span><span class="s1">&#39;s00001-2896-10-10-00-31&#39;</span><span class="p">,</span> <span class="n">m2s</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Turn it into a single record</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record_s</span> <span class="o">=</span> <span class="n">record_s</span><span class="o">.</span><span class="n">multi_to_single</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>record_s initially stores a <cite>MultiRecord</cite> object, and is then converted into
+a <cite>Record</cite> object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="wfdb.MultiRecord.multi_to_single">
+<span class="sig-name descname"><span class="pre">multi_to_single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">physical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.MultiRecord.multi_to_single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Record object from the MultiRecord object. All signal
+segments will be combined into the new object’s <cite>p_signal</cite> or
+<cite>d_signal</cite> field. For digital format, the signals must have
+the same storage format, baseline, and adc_gain in all segments.</p>
+<dl class="simple">
+<dt>physical<span class="classifier">bool</span></dt><dd><p>Whether to convert the physical or digital signal.</p>
+</dd>
+<dt>return_res<span class="classifier">int, optional</span></dt><dd><p>The return resolution of the <cite>p_signal</cite> field. Options are:
+64, 32, and 16.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>record<span class="classifier">WFDB Record</span></dt><dd><p>The single segment record created.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-0">
+<span id="wfdb-anotations"></span><h2>WFDB Anotations<a class="headerlink" href="#module-0" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.rdann">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">rdann</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampfrom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_samps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_label_elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['symbol']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summarize_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.rdann" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a WFDB annotation file record_name.extension and return an
+Annotation object.</p>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The record name of the WFDB annotation file. ie. for file ‘100.atr’,
+record_name=’100’.</p>
+</dd>
+<dt>extension<span class="classifier">str</span></dt><dd><p>The annotatator extension of the annotation file. ie. for  file
+‘100.atr’, extension=’atr’.</p>
+</dd>
+<dt>sampfrom<span class="classifier">int, optional</span></dt><dd><p>The minimum sample number for annotations to be returned.</p>
+</dd>
+<dt>sampto<span class="classifier">int, optional</span></dt><dd><p>The maximum sample number for annotations to be returned.</p>
+</dd>
+<dt>shift_samps<span class="classifier">bool, optional</span></dt><dd><p>Specifies whether to return the sample indices relative to <cite>sampfrom</cite>
+(True), or sample 0 (False).</p>
+</dd>
+<dt>pn_dir<span class="classifier">str, optional</span></dt><dd><p>Option used to stream data from Physionet. The PhysioNet database
+directory from which to find the required annotation file. eg. For
+record ‘100’ in ‘<a class="reference external" href="http://physionet.org/content/mitdb">http://physionet.org/content/mitdb</a>’: pn_dir=’mitdb’.</p>
+</dd>
+<dt>return_label_elements<span class="classifier">list, optional</span></dt><dd><p>The label elements that are to be returned from reading the annotation
+file. A list with at least one of the following options: ‘symbol’,
+‘label_store’, ‘description’.</p>
+</dd>
+<dt>summarize_labels<span class="classifier">bool, optional</span></dt><dd><p>If True, assign a summary table of the set of annotation labels
+contained in the file to the ‘contained_labels’ attribute of the
+returned object. This table will contain the columns:
+[‘label_store’, ‘symbol’, ‘description’, ‘n_occurrences’].</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>annotation<span class="classifier">Annotation</span></dt><dd><p>The Annotation object. Call help(wfdb.Annotation) for the attribute
+descriptions.</p>
+</dd>
+</dl>
+<p>For every annotation sample, the annotation file explictly stores the
+‘sample’ and ‘symbol’ fields, but not necessarily the others. When reading
+annotation files using this function, fields which are not stored in the
+file will either take their default values of 0 or None, or will be carried
+over from their previous values if any.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ann</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdann</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="s1">&#39;atr&#39;</span><span class="p">,</span> <span class="n">sampto</span><span class="o">=</span><span class="mi">300000</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.show_ann_classes">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">show_ann_classes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.show_ann_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the standard WFDB annotation classes.</p>
+<p>N/A</p>
+<p>N/A</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">show_ann_classes</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.show_ann_labels">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">show_ann_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.show_ann_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the standard WFDB annotation label mapping.</p>
+<p>N/A</p>
+<p>N/A</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">show_ann_labels</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.wrann">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">wrann</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_note</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.wrann" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a WFDB annotation file.</p>
+<p>Specify at least the following:</p>
+<ul class="simple">
+<li><p>The record name of the WFDB record (record_name).</p></li>
+<li><p>The annotation file extension (extension).</p></li>
+<li><p>The annotation locations in samples relative to the beginning of
+the record (sample).</p></li>
+<li><p>Either the numerical values used to store the labels.
+(<cite>label_store</cite>), or more commonly, the display symbols of each
+label (<cite>symbol</cite>).</p></li>
+</ul>
+<dl>
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The string name of the WFDB record to be written (without any file
+extensions).</p>
+</dd>
+<dt>extension<span class="classifier">str</span></dt><dd><p>The string annotation file extension.</p>
+</dd>
+<dt>sample<span class="classifier">ndarray</span></dt><dd><p>A numpy array containing the annotation locations in samples relative to
+the beginning of the record.</p>
+</dd>
+<dt>symbol<span class="classifier">list, numpy array, optional</span></dt><dd><p>The symbols used to display the annotation labels. List or numpy array.
+If this field is present, <cite>label_store</cite> must not be present.</p>
+</dd>
+<dt>subtype<span class="classifier">ndarray, optional</span></dt><dd><p>A numpy array containing the marked class/category of each annotation.</p>
+</dd>
+<dt>chan<span class="classifier">ndarray, optional</span></dt><dd><p>A numpy array containing the signal channel associated with each
+annotation.</p>
+</dd>
+<dt>num<span class="classifier">ndarray, optional</span></dt><dd><p>A numpy array containing the labelled annotation number for each
+annotation.</p>
+</dd>
+<dt>aux_note<span class="classifier">list, optional</span></dt><dd><p>A list containing the auxiliary information string (or None for
+annotations without notes) for each annotation.</p>
+</dd>
+<dt>label_store<span class="classifier">ndarray, optional</span></dt><dd><p>A numpy array containing the integer values used to store the
+annotation labels. If this field is present, <cite>symbol</cite> must not be
+present.</p>
+</dd>
+<dt>fs<span class="classifier">int, float, optional</span></dt><dd><p>The numerical sampling frequency of the record to be written to the file.</p>
+</dd>
+<dt>custom_labels<span class="classifier">pandas dataframe, optional</span></dt><dd><p>The map of custom defined annotation labels used for this annotation, in
+addition to the standard WFDB annotation labels. Custom labels are
+defined by two or three fields:</p>
+<ul class="simple">
+<li><p>The integer values used to store custom annotation labels in the file
+(optional).</p></li>
+<li><p>Their short display symbols</p></li>
+<li><p>Their long descriptions.</p></li>
+</ul>
+<p>This input argument may come in four formats:</p>
+<ol class="arabic simple">
+<li><p>A pandas.DataFrame object with columns:
+[‘label_store’, ‘symbol’, ‘description’]</p></li>
+<li><p>A pandas.DataFrame object with columns: [‘symbol’, ‘description’]
+If this option is chosen, label_store values are automatically chosen.</p></li>
+<li><p>A list or tuple of tuple triplets, with triplet elements
+representing: (label_store, symbol, description).</p></li>
+<li><p>A list or tuple of tuple pairs, with pair elements representing:
+(symbol, description). If this option is chosen, label_store values
+are automatically chosen.</p></li>
+</ol>
+<p>If the <cite>label_store</cite> field is given for this function, and
+<cite>custom_labels</cite> is defined, <cite>custom_labels</cite> must contain <cite>label_store</cite>
+in its mapping. ie. it must come in format 1 or 3 above.</p>
+</dd>
+<dt>write_dir<span class="classifier">str, optional</span></dt><dd><p>The directory in which to write the annotation file</p>
+</dd>
+</dl>
+<p>N/A</p>
+<p>This is a gateway function, written as a simple way to write WFDB annotation
+files without needing to explicity create an Annotation object. You may also
+create an Annotation object, manually set its attributes, and call its
+<cite>wrann</cite> instance method.</p>
+<p>Each annotation stored in a WFDB annotation file contains a sample field and
+a label field. All other fields may or may not be present.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Read an annotation as an Annotation object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">annotation</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdann</span><span class="p">(</span><span class="s1">&#39;b001&#39;</span><span class="p">,</span> <span class="s1">&#39;atr&#39;</span><span class="p">,</span> <span class="n">pn_dir</span><span class="o">=</span><span class="s1">&#39;cebsdb&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Write a copy of the annotation file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">wrann</span><span class="p">(</span><span class="s1">&#39;b001&#39;</span><span class="p">,</span> <span class="s1">&#39;cpy&#39;</span><span class="p">,</span> <span class="n">annotation</span><span class="o">.</span><span class="n">sample</span><span class="p">,</span> <span class="n">annotation</span><span class="o">.</span><span class="n">symbol</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wfdb.Annotation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">Annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_note</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contained_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.Annotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class representing WFDB annotations.</p>
+<p>Annotation objects can be created using the initializer, or by reading a
+WFDB annotation file with <cite>rdann</cite>.</p>
+<p>The attributes of the Annotation object give information about the
+annotation as specified by:
+<a class="reference external" href="https://www.physionet.org/physiotools/wag/annot-5.htm">https://www.physionet.org/physiotools/wag/annot-5.htm</a></p>
+<p>Call <cite>show_ann_labels()</cite> to see the list of standard annotation codes. Any
+text used to label annotations that are not one of these codes should go in
+the ‘aux_note’ field rather than the ‘sym’ field.</p>
+<p>The current annotation values organized as such:</p>
+<blockquote>
+<div><p>AnnotationLabel(label_store (or subtype), symbol (or aux_note), short_description, description)</p>
+</div></blockquote>
+<p>where the associated values are:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>ann_labels = [</dt><dd><p>AnnotationLabel(0, ” “, ‘NOTANN’, ‘Not an actual annotation’),
+AnnotationLabel(1, “N”, ‘NORMAL’, ‘Normal beat’),
+AnnotationLabel(2, “L”, ‘LBBB’, ‘Left bundle branch block beat’),
+AnnotationLabel(3, “R”, ‘RBBB’, ‘Right bundle branch block beat’),
+AnnotationLabel(4, “a”, ‘ABERR’, ‘Aberrated atrial premature beat’),
+AnnotationLabel(5, “V”, ‘PVC’, ‘Premature ventricular contraction’),
+AnnotationLabel(6, “F”, ‘FUSION’, ‘Fusion of ventricular and normal beat’),
+AnnotationLabel(7, “J”, ‘NPC’, ‘Nodal (junctional) premature beat’),
+AnnotationLabel(8, “A”, ‘APC’, ‘Atrial premature contraction’),
+AnnotationLabel(9, “S”, ‘SVPB’, ‘Premature or ectopic supraventricular beat’),
+AnnotationLabel(10, “E”, ‘VESC’, ‘Ventricular escape beat’),
+AnnotationLabel(11, “j”, ‘NESC’, ‘Nodal (junctional) escape beat’),
+AnnotationLabel(12, “/”, ‘PACE’, ‘Paced beat’),
+AnnotationLabel(13, “Q”, ‘UNKNOWN’, ‘Unclassifiable beat’),
+AnnotationLabel(14, “~”, ‘NOISE’, ‘Signal quality change’),
+AnnotationLabel(16, “|”, ‘ARFCT’,  ‘Isolated QRS-like artifact’),
+AnnotationLabel(18, “s”, ‘STCH’,  ‘ST change’),
+AnnotationLabel(19, “T”, ‘TCH’,  ‘T-wave change’),
+AnnotationLabel(20, “*”, ‘SYSTOLE’,  ‘Systole’),
+AnnotationLabel(21, “D”, ‘DIASTOLE’,  ‘Diastole’),
+AnnotationLabel(22, ‘”’, ‘NOTE’,  ‘Comment annotation’),
+AnnotationLabel(23, “=”, ‘MEASURE’,  ‘Measurement annotation’),
+AnnotationLabel(24, “p”, ‘PWAVE’,  ‘P-wave peak’),
+AnnotationLabel(25, “B”, ‘BBB’,  ‘Left or right bundle branch block’),
+AnnotationLabel(26, “^”, ‘PACESP’,  ‘Non-conducted pacer spike’),
+AnnotationLabel(27, “t”, ‘TWAVE’,  ‘T-wave peak’),
+AnnotationLabel(28, “+”, ‘RHYTHM’,  ‘Rhythm change’),
+AnnotationLabel(29, “u”, ‘UWAVE’,  ‘U-wave peak’),
+AnnotationLabel(30, “?”, ‘LEARN’,  ‘Learning’),
+AnnotationLabel(31, “!”, ‘FLWAV’,  ‘Ventricular flutter wave’),
+AnnotationLabel(32, “[”, ‘VFON’,  ‘Start of ventricular flutter/fibrillation’),
+AnnotationLabel(33, “]”, ‘VFOFF’,  ‘End of ventricular flutter/fibrillation’),
+AnnotationLabel(34, “e”, ‘AESC’,  ‘Atrial escape beat’),
+AnnotationLabel(35, “n”, ‘SVESC’,  ‘Supraventricular escape beat’),
+AnnotationLabel(36, “&#64;”, ‘LINK’,  ‘Link to external data (aux_note contains URL)’),
+AnnotationLabel(37, “x”, ‘NAPC’,  ‘Non-conducted P-wave (blocked APB)’),
+AnnotationLabel(38, “f”, ‘PFUS’,  ‘Fusion of paced and normal beat’),
+AnnotationLabel(39, “(”, ‘WFON’,  ‘Waveform onset’),
+AnnotationLabel(40, “)”, ‘WFOFF’,  ‘Waveform end’),
+AnnotationLabel(41, “r”, ‘RONT’,  ‘R-on-T premature ventricular contraction’)</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>The current annotation classes are organized as such:</p>
+<blockquote>
+<div><p>AnnotationClass(extension, description, human_reviewed)</p>
+</div></blockquote>
+<p>where the associated values are:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>ann_classes = [</dt><dd><p>AnnotationClass(‘atr’, ‘Reference ECG annotations’, True),
+AnnotationClass(‘blh’, ‘Human reviewed beat labels’, True),
+AnnotationClass(‘blm’, ‘Machine beat labels’, False),
+AnnotationClass(‘alh’, ‘Human reviewed alarms’, True),
+AnnotationClass(‘alm’, ‘Machine alarms’, False),
+AnnotationClass(‘qrsc’, ‘Human reviewed QRS detections’, True),
+AnnotationClass(‘qrs’, ‘Machine QRS detections’, False),
+AnnotationClass(‘bph’, ‘Human reviewed BP beat detections’, True),
+AnnotationClass(‘bpm’, ‘Machine BP beat detections’, False)</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>record_name<span class="classifier">str</span></dt><dd><p>The base file name (without extension) of the record that the
+annotation is associated with.</p>
+</dd>
+<dt>extension<span class="classifier">str</span></dt><dd><p>The file extension of the file the annotation is stored in.</p>
+</dd>
+<dt>sample<span class="classifier">ndarray</span></dt><dd><p>A numpy array containing the annotation locations in samples relative to
+the beginning of the record.</p>
+</dd>
+<dt>symbol<span class="classifier">list, numpy array, optional</span></dt><dd><p>The symbols used to display the annotation labels. List or numpy array.
+If this field is present, <cite>label_store</cite> must not be present.</p>
+</dd>
+<dt>subtype<span class="classifier">ndarray, optional</span></dt><dd><p>A numpy array containing the marked class/category of each annotation.</p>
+</dd>
+<dt>chan<span class="classifier">ndarray, optional</span></dt><dd><p>A numpy array containing the signal channel associated with each
+annotation.</p>
+</dd>
+<dt>num<span class="classifier">ndarray, optional</span></dt><dd><p>A numpy array containing the labelled annotation number for each
+annotation.</p>
+</dd>
+<dt>aux_note<span class="classifier">list, optional</span></dt><dd><p>A list containing the auxiliary information string (or None for
+annotations without notes) for each annotation.</p>
+</dd>
+<dt>fs<span class="classifier">int, float, optional</span></dt><dd><p>The sampling frequency of the record.</p>
+</dd>
+<dt>label_store<span class="classifier">ndarray, optional</span></dt><dd><p>The integer value used to store/encode each annotation label</p>
+</dd>
+<dt>description<span class="classifier">list, optional</span></dt><dd><p>A list containing the descriptive string of each annotation label.</p>
+</dd>
+<dt>custom_labels<span class="classifier">pandas dataframe, optional</span></dt><dd><p>The custom annotation labels defined in the annotation file. Maps
+the relationship between the three label fields. The data type is a
+pandas DataFrame with three columns:
+[‘label_store’, ‘symbol’, ‘description’].</p>
+</dd>
+<dt>contained_labels<span class="classifier">pandas dataframe, optional</span></dt><dd><p>The unique labels contained in this annotation. Same structure as
+<cite>custom_labels</cite>.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ann1</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">Annotation</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="s1">&#39;rec1&#39;</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;atr&#39;</span><span class="p">,</span>
+<span class="go">                           sample=[10,20,400], symbol=[&#39;N&#39;,&#39;N&#39;,&#39;[&#39;],</span>
+<span class="go">                           aux_note=[None, None, &#39;Serious Vfib&#39;])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="wfdb.Annotation.wrann">
+<span class="sig-name descname"><span class="pre">wrann</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">write_fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.Annotation.wrann" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a WFDB annotation file from this object.</p>
+<dl class="simple">
+<dt>write_fs<span class="classifier">bool, optional</span></dt><dd><p>Whether to write the <cite>fs</cite> attribute to the file.</p>
+</dd>
+<dt>write_dir<span class="classifier">str, optional</span></dt><dd><p>The output directory in which the header is written.</p>
+</dd>
+</dl>
+<p>N/A</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-1">
+<span id="downloading"></span><h2>Downloading<a class="headerlink" href="#module-1" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.dl_database">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">dl_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dl_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">records</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_subdirs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.dl_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download WFDB record (and optionally annotation) files from a
+PhysioNet database. The database must contain a ‘RECORDS’ file in
+its base directory which lists its WFDB records.</p>
+<dl class="simple">
+<dt>db_dir<span class="classifier">str</span></dt><dd><p>The PhysioNet database directory to download. eg. For database:
+‘<a class="reference external" href="http://physionet.org/content/mitdb/">http://physionet.org/content/mitdb/</a>’, db_dir=’mitdb’.</p>
+</dd>
+<dt>dl_dir<span class="classifier">str</span></dt><dd><p>The full local directory path in which to download the files.</p>
+</dd>
+<dt>records<span class="classifier">list, ‘all’, optional</span></dt><dd><p>A list of strings specifying the WFDB records to download. Leave
+as ‘all’ to download all records listed in the database’s
+RECORDS file.
+eg. records=[‘test01_00s’, test02_45s] for database:
+<a class="reference external" href="https://physionet.org/content/macecgdb/">https://physionet.org/content/macecgdb/</a></p>
+</dd>
+<dt>annotators<span class="classifier">list, ‘all’, None, optional</span></dt><dd><p>A list of strings specifying the WFDB annotation file types to
+download along with the record files. Is either None to skip
+downloading any annotations, ‘all’ to download all annotation
+types as specified by the ANNOTATORS file, or a list of strings
+which each specify an annotation extension.
+eg. annotators = [‘anI’] for database:
+<a class="reference external" href="https://physionet.org/content/prcp/">https://physionet.org/content/prcp/</a></p>
+</dd>
+<dt>keep_subdirs<span class="classifier">bool, optional</span></dt><dd><p>Whether to keep the relative subdirectories of downloaded files
+as they are organized in PhysioNet (True), or to download all
+files into the same base directory (False).</p>
+</dd>
+<dt>overwrite<span class="classifier">bool, optional</span></dt><dd><p>If True, all files will be redownloaded regardless. If False,
+existing files with the same name and relative subdirectory will
+be checked. If the local file is the same size as the online
+file, the download is skipped. If the local file is larger, it
+will be deleted and the file will be redownloaded. If the local
+file is smaller, the file will be assumed to be partially
+downloaded and the remaining bytes will be downloaded and
+appended.</p>
+</dd>
+</dl>
+<p>N/A</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">dl_database</span><span class="p">(</span><span class="s1">&#39;ahadb&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.dl_files">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">dl_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dl_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_subdirs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.dl_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download specified files from a PhysioNet database.</p>
+<dl class="simple">
+<dt>db<span class="classifier">str</span></dt><dd><p>The PhysioNet database directory to download. eg. For database:
+‘<a class="reference external" href="http://physionet.org/content/mitdb">http://physionet.org/content/mitdb</a>’, db=’mitdb’.</p>
+</dd>
+<dt>dl_dir<span class="classifier">str</span></dt><dd><p>The full local directory path in which to download the files.</p>
+</dd>
+<dt>files<span class="classifier">list</span></dt><dd><p>A list of strings specifying the file names to download relative to the
+database base directory.</p>
+</dd>
+<dt>keep_subdirs<span class="classifier">bool, optional</span></dt><dd><p>Whether to keep the relative subdirectories of downloaded files as they
+are organized in PhysioNet (True), or to download all files into the
+same base directory (False).</p>
+</dd>
+<dt>overwrite<span class="classifier">bool, optional</span></dt><dd><p>If True, all files will be redownloaded regardless. If False, existing
+files with the same name and relative subdirectory will be checked.
+If the local file is the same size as the online file, the download is
+skipped. If the local file is larger, it will be deleted and the file
+will be redownloaded. If the local file is smaller, the file will be
+assumed to be partially downloaded and the remaining bytes will be
+downloaded and appended.</p>
+</dd>
+</dl>
+<p>N/A</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">dl_files</span><span class="p">(</span><span class="s1">&#39;ahadb&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span>
+<span class="go">                  [&#39;STAFF-Studies-bibliography-2016.pdf&#39;, &#39;data/001a.hea&#39;,</span>
+<span class="go">                  &#39;data/001a.dat&#39;])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.get_dbs">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">get_dbs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.get_dbs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all the PhysioNet databases available.</p>
+<p>N/A</p>
+<dl class="simple">
+<dt>dbs<span class="classifier">list</span></dt><dd><p>All of the databases currently available for analysis.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dbs</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">get_dbs</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dbs</span>
+<span class="go">[</span>
+<span class="go"> [&#39;aami-ec13&#39;, &#39;ANSI/AAMI EC13 Test Waveforms&#39;],</span>
+<span class="go"> [&#39;adfecgdb&#39;, &#39;Abdominal and Direct Fetal ECG Database&#39;],</span>
+<span class="go"> ...</span>
+<span class="go"> [&#39;wrist&#39;, &#39;Wrist PPG During Exercise&#39;]</span>
+<span class="go">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.get_record_list">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">get_record_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">records</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.get_record_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of records belonging to a database.</p>
+<dl class="simple">
+<dt>db_dir<span class="classifier">str</span></dt><dd><p>The database directory, usually the same as the database slug.
+The location to look for a RECORDS file.</p>
+</dd>
+<dt>records<span class="classifier">list, optional</span></dt><dd><p>An option used when this function acts as a helper function.
+Leave as default ‘all’ to get all records.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>record_list<span class="classifier">list</span></dt><dd><p>All of the possible record names for the input database.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">get_record_list</span><span class="p">(</span><span class="s1">&#39;mitdb&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.set_db_index_url">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">set_db_index_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_index_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://physionet.org/files/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.set_db_index_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the database index url to a custom value, to stream remote
+files from another location.</p>
+<dl class="simple">
+<dt>db_index_url<span class="classifier">str, optional</span></dt><dd><p>The desired new database index url. Leave as default to reset
+to the PhysioNet index url.</p>
+</dd>
+</dl>
+<p>N/A</p>
+</dd></dl>
+
+</section>
+<section id="module-2">
+<span id="plotting"></span><h2>Plotting<a class="headerlink" href="#module-2" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.plot_all_records">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">plot_all_records</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.plot_all_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot all WFDB records in a directory (by finding header files), one at
+a time, until the ‘enter’ key is pressed.</p>
+<dl class="simple">
+<dt>directory<span class="classifier">str, optional</span></dt><dd><p>The directory in which to search for WFDB records. Defaults to
+current working directory.</p>
+</dd>
+</dl>
+<p>N/A</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.plot_items">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">plot_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann_sym</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'samples'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['r*']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecg_grids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig_axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.plot_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subplot individual channels of signals and/or annotations.</p>
+<dl>
+<dt>signal<span class="classifier">1d or 2d numpy array, optional</span></dt><dd><p>The uniformly sampled signal to be plotted. If signal.ndim is 1, it is
+assumed to be a one channel signal. If it is 2, axes 0 and 1, must
+represent time and channel number respectively.</p>
+</dd>
+<dt>ann_samp: list, optional</dt><dd><p>A list of annotation locations to plot, with each list item
+corresponding to a different channel. List items may be:</p>
+<ul class="simple">
+<li><p>1d numpy array, with values representing sample indices. Empty
+arrays are skipped.</p></li>
+<li><p>list, with values representing sample indices. Empty lists
+are skipped.</p></li>
+<li><p>None. For channels in which nothing is to be plotted.</p></li>
+</ul>
+<p>If <cite>signal</cite> is defined, the annotation locations will be overlaid on
+the signals, with the list index corresponding to the signal channel.
+The length of <cite>annotation</cite> does not have to match the number of
+channels of <cite>signal</cite>.</p>
+</dd>
+<dt>ann_sym: list, optional</dt><dd><p>A list of annotation symbols to plot, with each list item
+corresponding to a different channel. List items should be lists of
+strings. The symbols are plotted over the corresponding <cite>ann_samp</cite>
+index locations.</p>
+</dd>
+<dt>fs<span class="classifier">int, float, optional</span></dt><dd><p>The sampling frequency of the signals and/or annotations. Used to
+calculate time intervals if <cite>time_units</cite> is not ‘samples’. Also
+required for plotting ECG grids.</p>
+</dd>
+<dt>time_units<span class="classifier">str, optional</span></dt><dd><p>The x axis unit. Allowed options are: ‘samples’, ‘seconds’, ‘minutes’,
+and ‘hours’.</p>
+</dd>
+<dt>sig_name<span class="classifier">list, optional</span></dt><dd><p>A list of strings specifying the signal names. Used with <cite>sig_units</cite>
+to form y labels, if <cite>ylabel</cite> is not set.</p>
+</dd>
+<dt>sig_units<span class="classifier">list, optional</span></dt><dd><p>A list of strings specifying the units of each signal channel. Used
+with <cite>sig_name</cite> to form y labels, if <cite>ylabel</cite> is not set. This
+parameter is required for plotting ECG grids.</p>
+</dd>
+<dt>xlabel<span class="classifier">list, optional</span></dt><dd><p>A list of strings specifying the final x labels to be used. If this
+option is present, no ‘time/’<cite>time_units</cite> is used.</p>
+</dd>
+<dt>ylabel<span class="classifier">list, optional</span></dt><dd><p>A list of strings specifying the final y labels. If this option is
+present, <cite>sig_name</cite> and <cite>sig_units</cite> will not be used for labels.</p>
+</dd>
+<dt>title<span class="classifier">str, optional</span></dt><dd><p>The title of the graph.</p>
+</dd>
+<dt>sig_style<span class="classifier">list, optional</span></dt><dd><p>A list of strings, specifying the style of the matplotlib plot
+for each signal channel. The list length should match the number
+of signal channels. If the list has a length of 1, the style
+will be used for all channels.</p>
+</dd>
+<dt>ann_style<span class="classifier">list, optional</span></dt><dd><p>A list of strings, specifying the style of the matplotlib plot for each
+annotation channel. If the list has a length of 1, the style will be
+used for all channels.</p>
+</dd>
+<dt>ecg_grids<span class="classifier">list, optional</span></dt><dd><p>A list of integers specifying channels in which to plot ECG grids. May
+also be set to ‘all’ for all channels. Major grids at 0.5mV, and minor
+grids at 0.125mV. All channels to be plotted with grids must have
+<cite>sig_units</cite> equal to ‘uV’, ‘mV’, or ‘V’.</p>
+</dd>
+<dt>sharex, sharey<span class="classifier">bool, optional</span></dt><dd><p>Controls sharing of properties among x (<cite>sharex</cite>) or y (<cite>sharey</cite>) axes.
+If True: x- or y-axis will be shared among all subplots.
+If False, each subplot x- or y-axis will be independent.</p>
+</dd>
+<dt>figsize<span class="classifier">tuple, optional</span></dt><dd><p>Tuple pair specifying the width, and height of the figure. It is the
+‘figsize’ argument passed into matplotlib.pyplot’s <cite>figure</cite> function.</p>
+</dd>
+<dt>return_fig<span class="classifier">bool, optional</span></dt><dd><p>Whether the figure is to be returned as an output argument.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>fig<span class="classifier">matplotlib figure, optional</span></dt><dd><p>The matplotlib figure generated. Only returned if the ‘return_fig’
+or ‘return_fig_axes’ parameter is set to True.</p>
+</dd>
+<dt>axes<span class="classifier">matplotlib axes, optional</span></dt><dd><p>The matplotlib axes generated. Only returned if the ‘return_fig_axes’
+parameter is set to True.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">sampto</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ann</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdann</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="s1">&#39;atr&#39;</span><span class="p">,</span> <span class="n">sampto</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">plot_items</span><span class="p">(</span><span class="n">signal</span><span class="o">=</span><span class="n">record</span><span class="o">.</span><span class="n">p_signal</span><span class="p">,</span>
+<span class="go">                    ann_samp=[ann.sample, ann.sample],</span>
+<span class="go">                    title=&#39;MIT-BIH Record 100&#39;, time_units=&#39;seconds&#39;,</span>
+<span class="go">                    figsize=(10,4), ecg_grids=&#39;all&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.plot_wfdb">
+<span class="sig-prename descclassname"><span class="pre">wfdb.</span></span><span class="sig-name descname"><span class="pre">plot_wfdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_sym</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'samples'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['r*']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecg_grids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.plot_wfdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subplot individual channels of a WFDB record and/or annotation.</p>
+<p>This function implements the base functionality of the <cite>plot_items</cite>
+function, while allowing direct input of WFDB objects.</p>
+<dl class="simple">
+<dt>If the record object is input, the function will extract from it:</dt><dd><ul class="simple">
+<li><p>signal values, from the <cite>p_signal</cite> (priority) or <cite>d_signal</cite> attribute</p></li>
+<li><p>sampling frequency, from the <cite>fs</cite> attribute</p></li>
+<li><p>signal names, from the <cite>sig_name</cite> attribute</p></li>
+<li><p>signal units, from the <cite>units</cite> attribute</p></li>
+</ul>
+</dd>
+<dt>If the annotation object is input, the function will extract from it:</dt><dd><ul class="simple">
+<li><p>sample locations, from the <cite>sample</cite> attribute</p></li>
+<li><p>symbols, from the <cite>symbol</cite> attribute</p></li>
+<li><p>the annotation channels, from the <cite>chan</cite> attribute</p></li>
+<li><p>the sampling frequency, from the <cite>fs</cite> attribute if present, and if fs
+was not already extracted from the <cite>record</cite> argument.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>record<span class="classifier">WFDB Record, optional</span></dt><dd><p>The Record object to be plotted.</p>
+</dd>
+<dt>annotation<span class="classifier">WFDB Annotation, optional</span></dt><dd><p>The Annotation object to be plotted.</p>
+</dd>
+<dt>plot_sym<span class="classifier">bool, optional</span></dt><dd><p>Whether to plot the annotation symbols on the graph.</p>
+</dd>
+<dt>time_units<span class="classifier">str, optional</span></dt><dd><p>The x axis unit. Allowed options are: ‘samples’, ‘seconds’,
+‘minutes’, and ‘hours’.</p>
+</dd>
+<dt>title<span class="classifier">str, optional</span></dt><dd><p>The title of the graph.</p>
+</dd>
+<dt>sig_style<span class="classifier">list, optional</span></dt><dd><p>A list of strings, specifying the style of the matplotlib plot
+for each signal channel. The list length should match the number
+of signal channels. If the list has a length of 1, the style
+will be used for all channels.</p>
+</dd>
+<dt>ann_style<span class="classifier">list, optional</span></dt><dd><p>A list of strings, specifying the style of the matplotlib plot
+for each annotation channel. The list length should match the
+number of annotation channels. If the list has a length of 1,
+the style will be used for all channels.</p>
+</dd>
+<dt>ecg_grids<span class="classifier">list, optional</span></dt><dd><p>A list of integers specifying channels in which to plot ECG grids. May
+also be set to ‘all’ for all channels. Major grids at 0.5mV, and minor
+grids at 0.125mV. All channels to be plotted with grids must have
+<cite>sig_units</cite> equal to ‘uV’, ‘mV’, or ‘V’.</p>
+</dd>
+<dt>figsize<span class="classifier">tuple, optional</span></dt><dd><p>Tuple pair specifying the width, and height of the figure. It is the
+‘figsize’ argument passed into matplotlib.pyplot’s <cite>figure</cite> function.</p>
+</dd>
+<dt>return_fig<span class="classifier">bool, optional</span></dt><dd><p>Whether the figure is to be returned as an output argument.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>figure<span class="classifier">matplotlib figure, optional</span></dt><dd><p>The matplotlib figure generated. Only returned if the ‘return_fig’
+option is set to True.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">sampto</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">annotation</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdann</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="s1">&#39;atr&#39;</span><span class="p">,</span> <span class="n">sampto</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">plot_wfdb</span><span class="p">(</span><span class="n">record</span><span class="o">=</span><span class="n">record</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="n">annotation</span><span class="p">,</span> <span class="n">plot_sym</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">                   time_units=&#39;seconds&#39;, title=&#39;MIT-BIH Record 100&#39;,</span>
+<span class="go">                   figsize=(10,4), ecg_grids=&#39;all&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="processing.html"
+                          title="previous chapter">processing</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="installation.html"
+                          title="next chapter">Installation</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="processing.html" title="processing"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">wfdb 4.0.0a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">wfdb</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, MIT Lab for Computational Physiology.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

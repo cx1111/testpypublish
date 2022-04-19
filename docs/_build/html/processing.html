@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>processing &#8212; wfdb 4.0.0a0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="wfdb" href="wfdb.html" />
+    <link rel="prev" title="plot" href="plot.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wfdb.html" title="wfdb"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plot.html" title="plot"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">wfdb 4.0.0a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">processing</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="processing">
+<h1>processing<a class="headerlink" href="#processing" title="Permalink to this headline">¶</a></h1>
+<p>The processing subpackage contains signal-processing tools.</p>
+<section id="basic-utility">
+<h2>Basic Utility<a class="headerlink" href="#basic-utility" title="Permalink to this headline">¶</a></h2>
+<p>Basic signal processing functions</p>
+<span class="target" id="module-wfdb.processing"></span><dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.get_filter_gain">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">get_filter_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_gain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.get_filter_gain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given filter coefficients, return the gain at a particular
+frequency.</p>
+<dl class="simple">
+<dt>b<span class="classifier">list</span></dt><dd><p>List of linear filter b coefficients.</p>
+</dd>
+<dt>a<span class="classifier">list</span></dt><dd><p>List of linear filter a coefficients.</p>
+</dd>
+<dt>f_gain<span class="classifier">int, float, optional</span></dt><dd><p>The frequency at which to calculate the gain.</p>
+</dd>
+<dt>fs<span class="classifier">int, float, optional</span></dt><dd><p>The sampling frequency of the system.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>gain<span class="classifier">int, float</span></dt><dd><p>The passband gain at the desired frequency.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.normalize_bound">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">normalize_bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.normalize_bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize a signal between the lower and upper bound.</p>
+<dl class="simple">
+<dt>sig<span class="classifier">ndarray</span></dt><dd><p>Original signal to be normalized.</p>
+</dd>
+<dt>lb<span class="classifier">int, float, optional</span></dt><dd><p>Lower bound.</p>
+</dd>
+<dt>ub<span class="classifier">int, float, optional</span></dt><dd><p>Upper bound.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>ndarray</dt><dd><p>Normalized signal.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.resample_ann">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">resample_ann</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ann_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs_target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.resample_ann" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the new annotation indices.</p>
+<dl class="simple">
+<dt>ann_sample<span class="classifier">ndarray</span></dt><dd><p>Array of annotation locations.</p>
+</dd>
+<dt>fs<span class="classifier">int</span></dt><dd><p>The starting sampling frequency.</p>
+</dd>
+<dt>fs_target<span class="classifier">int</span></dt><dd><p>The desired sampling frequency.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>ndarray</dt><dd><p>Array of resampled annotation locations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.resample_multichan">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">resample_multichan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resamp_ann_chan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.resample_multichan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resample multiple channels with their annotations.</p>
+<dl class="simple">
+<dt>xs: ndarray</dt><dd><p>The signal array.</p>
+</dd>
+<dt>ann<span class="classifier">WFDB Annotation</span></dt><dd><p>The WFDB annotation object.</p>
+</dd>
+<dt>fs<span class="classifier">int, float</span></dt><dd><p>The original frequency.</p>
+</dd>
+<dt>fs_target<span class="classifier">int, float</span></dt><dd><p>The target frequency.</p>
+</dd>
+<dt>resample_ann_channel<span class="classifier">int, optional</span></dt><dd><p>The signal channel used to compute new annotation indices.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>ndarray</dt><dd><p>Array of the resampled signal values.</p>
+</dd>
+<dt>resampled_ann<span class="classifier">WFDB Annotation</span></dt><dd><p>Annotation containing resampled annotation locations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.resample_sig">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">resample_sig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs_target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.resample_sig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resample a signal to a different frequency.</p>
+<dl class="simple">
+<dt>x<span class="classifier">ndarray</span></dt><dd><p>Array containing the signal.</p>
+</dd>
+<dt>fs<span class="classifier">int, float</span></dt><dd><p>The original sampling frequency.</p>
+</dd>
+<dt>fs_target<span class="classifier">int, float</span></dt><dd><p>The target frequency.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>resampled_x<span class="classifier">ndarray</span></dt><dd><p>Array of the resampled signal values.</p>
+</dd>
+<dt>resampled_t<span class="classifier">ndarray</span></dt><dd><p>Array of the resampled signal locations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.resample_singlechan">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">resample_singlechan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs_target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.resample_singlechan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resample a single-channel signal with its annotations.</p>
+<dl class="simple">
+<dt>x: ndarray</dt><dd><p>The signal array.</p>
+</dd>
+<dt>ann<span class="classifier">WFDB Annotation</span></dt><dd><p>The WFDB annotation object.</p>
+</dd>
+<dt>fs<span class="classifier">int, float</span></dt><dd><p>The original frequency.</p>
+</dd>
+<dt>fs_target<span class="classifier">int, float</span></dt><dd><p>The target frequency.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>resampled_x<span class="classifier">ndarray</span></dt><dd><p>Array of the resampled signal values.</p>
+</dd>
+<dt>resampled_ann<span class="classifier">WFDB Annotation</span></dt><dd><p>Annotation containing resampled annotation locations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-0">
+<span id="heart-rate"></span><h2>Heart Rate<a class="headerlink" href="#module-0" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.compute_hr">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">compute_hr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qrs_inds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.compute_hr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute instantaneous heart rate from peak indices.</p>
+<dl class="simple">
+<dt>sig_len<span class="classifier">int</span></dt><dd><p>The length of the corresponding signal.</p>
+</dd>
+<dt>qrs_inds<span class="classifier">ndarray</span></dt><dd><p>The QRS index locations.</p>
+</dd>
+<dt>fs<span class="classifier">int, float</span></dt><dd><p>The corresponding signal’s sampling frequency.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>heart_rate<span class="classifier">ndarray</span></dt><dd><p>An array of the instantaneous heart rate, with the length of the
+corresponding signal. Contains numpy.nan where heart rate could
+not be computed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-1">
+<span id="peaks"></span><h2>Peaks<a class="headerlink" href="#module-1" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.correct_peaks">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">correct_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_inds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_window_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'compare'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.correct_peaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust a set of detected peaks to coincide with local signal maxima.</p>
+<dl class="simple">
+<dt>sig<span class="classifier">ndarray</span></dt><dd><p>The 1d signal array.</p>
+</dd>
+<dt>peak_inds<span class="classifier">np array</span></dt><dd><p>Array of the original peak indices.</p>
+</dd>
+<dt>search_radius<span class="classifier">int</span></dt><dd><p>The radius within which the original peaks may be shifted.</p>
+</dd>
+<dt>smooth_window_size<span class="classifier">int</span></dt><dd><p>The window size of the moving average filter applied on the
+signal. Peak distance is calculated on the difference between
+the original and smoothed signal.</p>
+</dd>
+<dt>peak_dir<span class="classifier">str, optional</span></dt><dd><p>The expected peak direction: ‘up’ or ‘down’, ‘both’, or
+‘compare’.</p>
+<ul class="simple">
+<li><p>If ‘up’, the peaks will be shifted to local maxima.</p></li>
+<li><p>If ‘down’, the peaks will be shifted to local minima.</p></li>
+<li><p>If ‘both’, the peaks will be shifted to local maxima of the
+rectified signal.</p></li>
+<li><p>If ‘compare’, the function will try both ‘up’ and ‘down’
+options, and choose the direction that gives the largest mean
+distance from the smoothed signal.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>shifted_peak_inds<span class="classifier">ndarray</span></dt><dd><p>Array of the corrected peak indices.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.find_local_peaks">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">find_local_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.find_local_peaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all local peaks in a signal. A sample is a local peak if it is
+the largest value within the &lt;radius&gt; samples on its left and right.
+In cases where it shares the max value with nearby samples, the
+middle sample is classified as the local peak.</p>
+<dl class="simple">
+<dt>sig<span class="classifier">ndarray</span></dt><dd><p>1d numpy array of the signal.</p>
+</dd>
+<dt>radius<span class="classifier">int</span></dt><dd><p>The radius in which to search for defining local maxima.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>ndarray</dt><dd><p>The locations of all of the local peaks of the input signal.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.find_peaks">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">find_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.find_peaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find hard peaks and soft peaks in a signal, defined as follows:</p>
+<ul class="simple">
+<li><p>Hard peak: a peak that is either /or /.</p></li>
+<li><p>Soft peak: a peak that is either /-<em>or -</em>/.
+In this case we define the middle as the peak.</p></li>
+</ul>
+<dl class="simple">
+<dt>sig<span class="classifier">np array</span></dt><dd><p>The 1d signal array.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>hard_peaks<span class="classifier">ndarray</span></dt><dd><p>Array containing the indices of the hard peaks.</p>
+</dd>
+<dt>soft_peaks<span class="classifier">ndarray</span></dt><dd><p>Array containing the indices of the soft peaks.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-2">
+<span id="qrs-detectors"></span><h2>QRS Detectors<a class="headerlink" href="#module-2" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="wfdb.processing.XQRS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">XQRS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.XQRS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The QRS detector class for the XQRS algorithm. The <cite>XQRS.Conf</cite>
+class is the configuration class that stores initial parameters
+for the detection. The <cite>XQRS.detect</cite> method runs the detection algorithm.</p>
+<p>The process works as follows:</p>
+<ul class="simple">
+<li><p>Load the signal and configuration parameters.</p></li>
+<li><p>Bandpass filter the signal between 5 and 20 Hz, to get the
+filtered signal.</p></li>
+<li><p>Apply moving wave integration (MWI) with a Ricker
+(Mexican hat) wavelet onto the filtered signal, and save the
+square of the integrated signal.</p></li>
+<li><p>Conduct learning if specified, to initialize running
+parameters of noise and QRS amplitudes, the QRS detection
+threshold, and recent R-R intervals. If learning is unspecified
+or fails, use default parameters. See the docstring for the
+<cite>_learn_init_params</cite> method of this class for details.</p></li>
+<li><p>Run the main detection. Iterate through the local maxima of
+the MWI signal. For each local maxima:</p>
+<ul>
+<li><p>Check if it is a QRS complex. To be classified as a QRS,
+it must come after the refractory period, cross the QRS
+detection threshold, and not be classified as a T-wave
+if it comes close enough to the previous QRS. If
+successfully classified, update running detection
+threshold and heart rate parameters.</p></li>
+<li><p>If not a QRS, classify it as a noise peak and update
+running parameters.</p></li>
+<li><p>Before continuing to the next local maxima, if no QRS
+was detected within 1.66 times the recent R-R interval,
+perform backsearch QRS detection. This checks previous
+peaks using a lower QRS detection threshold.</p></li>
+</ul>
+</li>
+</ul>
+<dl class="simple">
+<dt>sig<span class="classifier">1d ndarray</span></dt><dd><p>The input ECG signal to apply the QRS detection on.</p>
+</dd>
+<dt>fs<span class="classifier">int, float</span></dt><dd><p>The sampling frequency of the input signal.</p>
+</dd>
+<dt>conf<span class="classifier">XQRS.Conf object, optional</span></dt><dd><p>The configuration object specifying signal configuration
+parameters. See the docstring of the XQRS.Conf class.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wfdb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">wfdb</span> <span class="kn">import</span> <span class="n">processing</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span><span class="p">,</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdsamp</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xqrs</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">XQRS</span><span class="p">(</span><span class="n">sig</span><span class="o">=</span><span class="n">sig</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xqrs</span><span class="o">.</span><span class="n">detect</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfdb</span><span class="o">.</span><span class="n">plot_items</span><span class="p">(</span><span class="n">signal</span><span class="o">=</span><span class="n">sig</span><span class="p">,</span> <span class="n">ann_samp</span><span class="o">=</span><span class="p">[</span><span class="n">xqrs</span><span class="o">.</span><span class="n">qrs_inds</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="wfdb.processing.XQRS.Conf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Conf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hr_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hr_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hr_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qrs_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qrs_thr_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.13</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qrs_thr_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_inspect_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.XQRS.Conf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial signal configuration object for this QRS detector.</p>
+<dl class="simple">
+<dt>hr_init<span class="classifier">int, float, optional</span></dt><dd><p>Initial heart rate in beats per minute. Used for calculating
+recent R-R intervals.</p>
+</dd>
+<dt>hr_max<span class="classifier">int, float, optional</span></dt><dd><p>Hard maximum heart rate between two beats, in beats per
+minute. Used for refractory period.</p>
+</dd>
+<dt>hr_min<span class="classifier">int, float, optional</span></dt><dd><p>Hard minimum heart rate between two beats, in beats per
+minute. Used for calculating recent R-R intervals.</p>
+</dd>
+<dt>qrs_width<span class="classifier">int, float, optional</span></dt><dd><p>Expected QRS width in seconds. Used for filter widths
+indirect refractory period.</p>
+</dd>
+<dt>qrs_thr_init<span class="classifier">int, float, optional</span></dt><dd><p>Initial QRS detection threshold in mV. Use when learning
+is False, or learning fails.</p>
+</dd>
+<dt>qrs_thr_min<span class="classifier">int, float, string, optional</span></dt><dd><p>Hard minimum detection threshold of QRS wave. Leave as 0
+for no minimum.</p>
+</dd>
+<dt>ref_period<span class="classifier">int, float, optional</span></dt><dd><p>The QRS refractory period.</p>
+</dd>
+<dt>t_inspect_period<span class="classifier">int, float, optional</span></dt><dd><p>The period below which a potential QRS complex is inspected to
+see if it is a T-wave. Leave as 0 for no T-wave inspection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wfdb.processing.XQRS.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sampfrom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'end'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.XQRS.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect QRS locations between two samples.</p>
+<dl class="simple">
+<dt>sampfrom<span class="classifier">int, optional</span></dt><dd><p>The starting sample number to run the detection on.</p>
+</dd>
+<dt>sampto<span class="classifier">int, optional</span></dt><dd><p>The final sample number to run the detection on. Set as
+‘end’ to run on the entire signal.</p>
+</dd>
+<dt>learn<span class="classifier">bool, optional</span></dt><dd><p>Whether to apply learning on the signal before running the
+main detection. If learning fails or is not conducted, the
+default configuration parameters will be used to initialize
+these variables. See the <cite>XQRS._learn_init_params</cite> docstring
+for details.</p>
+</dd>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>Whether to display the stages and outcomes of the detection
+process.</p>
+</dd>
+</dl>
+<p>N/A</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.gqrs_detect">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">gqrs_detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_sig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RRdelta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RRmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.28</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RRmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RTmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RTmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QRSa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QRSamin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">130</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.gqrs_detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect QRS locations in a single channel ecg. Functionally, a direct port
+of the GQRS algorithm from the original WFDB package. Accepts either a
+physical signal, or a digital signal with known adc_gain and adc_zero. See
+the notes below for a summary of the program. This algorithm is not being
+developed/supported.</p>
+<dl class="simple">
+<dt>sig<span class="classifier">1d numpy array, optional</span></dt><dd><p>The input physical signal. The detection algorithm which replicates
+the original, works using digital samples, and this physical option is
+provided as a convenient interface. If this is the specified input
+signal, automatic adc is performed using 24 bit precision, to obtain
+the <cite>d_sig</cite>, <cite>adc_gain</cite>, and <cite>adc_zero</cite> parameters. There may be minor
+differences in detection results (ie. an occasional 1 sample
+difference) between using <cite>sig</cite> and <cite>d_sig</cite>. To replicate the exact
+output of the original GQRS algorithm, use the <cite>d_sig</cite> argument
+instead.</p>
+</dd>
+<dt>fs<span class="classifier">int, float, optional</span></dt><dd><p>The sampling frequency of the signal.</p>
+</dd>
+<dt>d_sig<span class="classifier">1d numpy array, optional</span></dt><dd><p>The input digital signal. If this is the specified input signal rather
+than <cite>sig</cite>, the <cite>adc_gain</cite> and <cite>adc_zero</cite> parameters must be specified.</p>
+</dd>
+<dt>adc_gain<span class="classifier">int, float, optional</span></dt><dd><p>The analogue to digital gain of the signal (the number of adus per
+physical unit).</p>
+</dd>
+<dt>adc_zero<span class="classifier">int, optional</span></dt><dd><p>The value produced by the ADC given a 0 Volt input.</p>
+</dd>
+<dt>threshold<span class="classifier">int, float, optional</span></dt><dd><p>The relative amplitude detection threshold. Used to initialize the peak
+and QRS detection threshold.</p>
+</dd>
+<dt>hr<span class="classifier">int, float, optional</span></dt><dd><p>Typical heart rate, in beats per minute.</p>
+</dd>
+<dt>RRdelta<span class="classifier">int, float, optional</span></dt><dd><p>Typical difference between successive RR intervals in seconds.</p>
+</dd>
+<dt>RRmin<span class="classifier">int, float, optional</span></dt><dd><p>Minimum RR interval (“refractory period”), in seconds.</p>
+</dd>
+<dt>RRmax<span class="classifier">int, float, optional</span></dt><dd><p>Maximum RR interval, in seconds. Thresholds will be adjusted if no
+peaks are detected within this interval.</p>
+</dd>
+<dt>QS<span class="classifier">int, float, optional</span></dt><dd><p>Typical QRS duration, in seconds.</p>
+</dd>
+<dt>QT<span class="classifier">int, float, optional</span></dt><dd><p>Typical QT interval, in seconds.</p>
+</dd>
+<dt>RTmin<span class="classifier">int, float, optional</span></dt><dd><p>Minimum interval between R and T peaks, in seconds.</p>
+</dd>
+<dt>RTmax<span class="classifier">int, float, optional</span></dt><dd><p>Maximum interval between R and T peaks, in seconds.</p>
+</dd>
+<dt>QRSa<span class="classifier">int, float, optional</span></dt><dd><p>Typical QRS peak-to-peak amplitude, in microvolts.</p>
+</dd>
+<dt>QRSamin<span class="classifier">int, float, optional</span></dt><dd><p>Minimum QRS peak-to-peak amplitude, in microvolts.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>qrs_locs<span class="classifier">ndarray</span></dt><dd><p>Detected QRS locations.</p>
+</dd>
+</dl>
+<p>This function should not be used for signals with fs &lt;= 50Hz.</p>
+<p>The algorithm theoretically works as follows:</p>
+<ul>
+<li><p>Load in configuration parameters. They are used to set/initialize the:</p>
+<ul class="simple">
+<li><p>allowed R-R interval limits (fixed)</p></li>
+<li><p>initial recent R-R interval (running)</p></li>
+<li><p>QRS width, used for detection filter widths (fixed)</p></li>
+<li><p>allowed R-T interval limits (fixed)</p></li>
+<li><p>initial recent R-T interval (running)</p></li>
+<li><p>initial peak amplitude detection threshold (running)</p></li>
+<li><p>initial QRS amplitude detection threshold (running)</p></li>
+<li><p><cite>Note</cite>: this algorithm does not normalize signal amplitudes, and
+hence is highly dependent on configuration amplitude parameters.</p></li>
+</ul>
+</li>
+<li><p>Apply trapezoid low-pass filtering to the signal.</p></li>
+<li><p>Convolve a QRS matched filter with the filtered signal.</p></li>
+<li><p>Run the learning phase using a calculated signal length: detect QRS and
+non-qrs peaks as in the main detection phase, without saving the QRS
+locations. During this phase, running parameters of recent intervals
+and peak/qrs thresholds are adjusted.</p></li>
+<li><dl>
+<dt>Run the detection:</dt><dd><p>if a sample is bigger than its immediate neighbors and larger
+than the peak detection threshold, it is a peak.</p>
+<blockquote>
+<div><p>if it is further than RRmin from the previous QRS, and is a
+primary peak.</p>
+<blockquote>
+<div><p>if it is further than 2 standard deviations from the
+previous QRS, do a backsearch for a missed low amplitude
+beat.</p>
+<blockquote>
+<div><p>return the primary peak between the current sample
+and the previous QRS if any.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>if it surpasses the QRS threshold, it is a QRS complex</dt><dd><p>save the QRS location.
+update running R-R interval and QRS amplitude parameters.
+look for the QRS complex’s T-wave and mark it if
+found.</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<dl class="simple">
+<dt>else if it is not a peak.</dt><dd><p>lower the peak detection threshold if the last peak found
+was more than RRmax ago, and not already at its minimum.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<p>A peak is secondary if there is a larger peak within its neighborhood
+(time +- rrmin), or if it has been identified as a T-wave associated with a
+previous primary peak. A peak is primary if it is largest in its neighborhood,
+or if the only larger peaks are secondary.</p>
+<p>The above describes how the algorithm should theoretically work, but there
+are bugs which make the program contradict certain parts of its supposed
+logic. A list of issues from the original c, code and hence this python
+implementation can be found here:</p>
+<p><a class="reference external" href="https://github.com/bemoody/wfdb/issues/17">https://github.com/bemoody/wfdb/issues/17</a></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wfdb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">wfdb</span> <span class="kn">import</span> <span class="n">processing</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Detect using a physical input signal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qrs_locs</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">gqrs_detect</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">p_signal</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="n">record</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Detect using a digital input signal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record_2</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">physical</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qrs_locs_2</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">gqrs_detect</span><span class="p">(</span><span class="n">d_sig</span><span class="o">=</span><span class="n">record_2</span><span class="o">.</span><span class="n">d_signal</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>
+<span class="go">                                        fs=record_2.fs,</span>
+<span class="go">                                        adc_gain=record_2.adc_gain[0],</span>
+<span class="go">                                        adc_zero=record_2.adc_zero[0])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.xqrs_detect">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">xqrs_detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampfrom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'end'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.xqrs_detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the ‘xqrs’ QRS detection algorithm on a signal. See the
+docstring of the XQRS class for algorithm details.</p>
+<dl class="simple">
+<dt>sig<span class="classifier">ndarray</span></dt><dd><p>The input ECG signal to apply the QRS detection on.</p>
+</dd>
+<dt>fs<span class="classifier">int, float</span></dt><dd><p>The sampling frequency of the input signal.</p>
+</dd>
+<dt>sampfrom<span class="classifier">int, optional</span></dt><dd><p>The starting sample number to run the detection on.</p>
+</dd>
+<dt>sampto<span class="classifier">str</span></dt><dd><p>The final sample number to run the detection on. Set as ‘end’ to
+run on the entire signal.</p>
+</dd>
+<dt>conf<span class="classifier">XQRS.Conf object, optional</span></dt><dd><p>The configuration object specifying signal configuration
+parameters. See the docstring of the XQRS.Conf class.</p>
+</dd>
+<dt>learn<span class="classifier">bool, optional</span></dt><dd><p>Whether to apply learning on the signal before running the main
+detection. If learning fails or is not conducted, the default
+configuration parameters will be used to initialize these
+variables.</p>
+</dd>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>Whether to display the stages and outcomes of the detection
+process.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>qrs_inds<span class="classifier">ndarray</span></dt><dd><p>The indices of the detected QRS complexes.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wfdb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">wfdb</span> <span class="kn">import</span> <span class="n">processing</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span><span class="p">,</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdsamp</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qrs_inds</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">xqrs_detect</span><span class="p">(</span><span class="n">sig</span><span class="o">=</span><span class="n">sig</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-3">
+<span id="annotation-evaluators"></span><h2>Annotation Evaluators<a class="headerlink" href="#module-3" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="wfdb.processing.Comparitor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">Comparitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.Comparitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class to implement and hold comparisons between two sets of
+annotations. See methods <cite>compare</cite>, <cite>print_summary</cite> and <cite>plot</cite>.</p>
+<dl class="simple">
+<dt>ref_sample<span class="classifier">ndarray</span></dt><dd><p>An array of the reference sample locations.</p>
+</dd>
+<dt>test_sample<span class="classifier">ndarray</span></dt><dd><p>An array of the comparison sample locations.</p>
+</dd>
+<dt>window_width<span class="classifier">int</span></dt><dd><p>The width of the window.</p>
+</dd>
+<dt>signal<span class="classifier">1d numpy array, optional</span></dt><dd><p>The signal array the annotation samples are labelling. Only used
+for plotting.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wfdb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">wfdb</span> <span class="kn">import</span> <span class="n">processing</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span><span class="p">,</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdsamp</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ann_ref</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdann</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span><span class="s1">&#39;atr&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xqrs</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">XQRS</span><span class="p">(</span><span class="n">sig</span><span class="o">=</span><span class="n">sig</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xqrs</span><span class="o">.</span><span class="n">detect</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">comparitor</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">Comparitor</span><span class="p">(</span><span class="n">ann_ref</span><span class="o">.</span><span class="n">sample</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+<span class="go">                                       xqrs.qrs_inds,</span>
+<span class="go">                                       int(0.1 * fields[&#39;fs&#39;]),</span>
+<span class="go">                                       sig[:,0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comparitor</span><span class="o">.</span><span class="n">compare</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comparitor</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comparitor</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="wfdb.processing.Comparitor.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.Comparitor.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main comparison function. Note: Make sure to be able to handle 
+these ref/test scenarios:</p>
+<p>N/A</p>
+<p>N/A</p>
+<p>A:
+o—-o—o—o
+x——-x—-x</p>
+<p>B:
+o—-o—–o—o
+x——–x–x–x</p>
+<p>C:
+o——o—–o—o
+x-x——–x–x–x</p>
+<p>D:
+o——o—–o—o
+x-x——–x—–x</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wfdb.processing.Comparitor.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.Comparitor.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the comparison of two sets of annotations, possibly
+overlaid on their original signal.</p>
+<dl class="simple">
+<dt>sig_style<span class="classifier">str, optional</span></dt><dd><p>The matplotlib style of the signal</p>
+</dd>
+<dt>title<span class="classifier">str, optional</span></dt><dd><p>The title of the plot</p>
+</dd>
+<dt>figsize: tuple, optional</dt><dd><p>Tuple pair specifying the width, and height of the figure.
+It is the’figsize’ argument passed into matplotlib.pyplot’s
+<cite>figure</cite> function.</p>
+</dd>
+<dt>return_fig<span class="classifier">bool, optional</span></dt><dd><p>Whether the figure is to be returned as an output argument.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>fig<span class="classifier">matplotlib figure object</span></dt><dd><p>The figure information for the plot.</p>
+</dd>
+<dt>ax<span class="classifier">matplotlib axes object</span></dt><dd><p>The axes information for the plot.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wfdb.processing.Comparitor.print_summary">
+<span class="sig-name descname"><span class="pre">print_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.Comparitor.print_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print summary metrics of the annotation comparisons.</p>
+<p>N/A</p>
+<p>N/A</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.benchmark_mitdb">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">benchmark_mitdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.benchmark_mitdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Benchmark a QRS detector against mitdb’s records.</p>
+<dl class="simple">
+<dt>detector<span class="classifier">function</span></dt><dd><p>The detector function.</p>
+</dd>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>The verbose option of the detector function.</p>
+</dd>
+<dt>print_results<span class="classifier">bool, optional</span></dt><dd><p>Whether to print the overall performance, and the results for
+each record.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>comparitors<span class="classifier">dictionary</span></dt><dd><p>Dictionary of Comparitor objects run on the records, keyed on
+the record names.</p>
+</dd>
+<dt>sensitivity<span class="classifier">float</span></dt><dd><p>Aggregate sensitivity.</p>
+</dd>
+<dt>positive_predictivity<span class="classifier">float</span></dt><dd><p>Aggregate positive_predictivity.</p>
+</dd>
+</dl>
+<p>TODO:
+- remove non-qrs detections from reference annotations
+- allow kwargs</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wfdb</span>
+<span class="go">&gt;&gt; from wfdb.processing import benchmark_mitdb, xqrs_detect</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">comparitors</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">pp</span> <span class="o">=</span> <span class="n">benchmark_mitdb</span><span class="p">(</span><span class="n">xqrs_detect</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wfdb.processing.compare_annotations">
+<span class="sig-prename descclassname"><span class="pre">wfdb.processing.</span></span><span class="sig-name descname"><span class="pre">compare_annotations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfdb.processing.compare_annotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare a set of reference annotation locations against a set of
+test annotation locations. See the Comparitor class  docstring 
+for more information.</p>
+<dl class="simple">
+<dt>ref_sample<span class="classifier">1d numpy array</span></dt><dd><p>Array of reference sample locations.</p>
+</dd>
+<dt>test_sample<span class="classifier">1d numpy array</span></dt><dd><p>Array of test sample locations to compare.</p>
+</dd>
+<dt>window_width<span class="classifier">int</span></dt><dd><p>The maximum absolute difference in sample numbers that is
+permitted for matching annotations.</p>
+</dd>
+<dt>signal<span class="classifier">1d numpy array, optional</span></dt><dd><p>The original signal of the two annotations. Only used for
+plotting.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>comparitor<span class="classifier">Comparitor object</span></dt><dd><p>Object containing parameters about the two sets of annotations.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wfdb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">wfdb</span> <span class="kn">import</span> <span class="n">processing</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span><span class="p">,</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdsamp</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ann_ref</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdann</span><span class="p">(</span><span class="s1">&#39;sample-data/100&#39;</span><span class="p">,</span><span class="s1">&#39;atr&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xqrs</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">XQRS</span><span class="p">(</span><span class="n">sig</span><span class="o">=</span><span class="n">sig</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xqrs</span><span class="o">.</span><span class="n">detect</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">comparitor</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">compare_annotations</span><span class="p">(</span><span class="n">ann_ref</span><span class="o">.</span><span class="n">sample</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+<span class="go">                                                xqrs.qrs_inds,</span>
+<span class="go">                                                int(0.1 * fields[&#39;fs&#39;]),</span>
+<span class="go">                                                sig[:,0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comparitor</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comparitor</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="plot.html"
+                          title="previous chapter">plot</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="wfdb.html"
+                          title="next chapter">wfdb</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wfdb.html" title="wfdb"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plot.html" title="plot"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">wfdb 4.0.0a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">processing</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, MIT Lab for Computational Physiology.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>
